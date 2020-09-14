@@ -4,8 +4,6 @@
 
 This repository is used for publishing [release notes](https://github.com/Azure/API-Management/releases) for [Azure API Management](https://aka.ms/apimrocks). Developer portal release notes are published in [the developer portal repository](https://aka.ms/apimdevportal).
 
-If you need assistance with Azure API Management, contact Microsoft Azure Support.
-
 ## Links
 
 - [Product overview](https://aka.ms/apimrocks)
