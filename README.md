@@ -2,9 +2,11 @@
 
 # Azure API Management 
 
-This repository is used for publishing [release notes](https://github.com/Azure/API-Management/releases) for [Azure API Management](https://aka.ms/apimrocks). Developer portal release notes are published in [the developer portal repository](https://aka.ms/apimdevportal).
+This repository is used for publishing [Azure API Management release notes](https://github.com/Azure/API-Management/releases). Developer portal release notes are published in [the developer portal repository](https://aka.ms/apimdevportal/releases).
 
 ## Related resources
+
+Explore other resources about Azure API Management:
 
 - [Product overview](https://aka.ms/apimrocks)
 - [Pricing](https://aka.ms/apimpricing)
@@ -12,6 +14,8 @@ This repository is used for publishing [release notes](https://github.com/Azure/
 - [Whitepapers, blogs, videos, samples, and other resources](https://aka.ms/apimlove)
 
 ## Related repositories
+
+Explore other Azure API Management repositories:
 
 - [Developer portal](https://aka.ms/apimdevportal)
 - [DevOps Resource Kit](https://aka.ms/apimdevops)
