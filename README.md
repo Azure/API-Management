@@ -1,31 +1,22 @@
+<img src="media/apim-logo.png" alt="Azure API Management" width="64" style="margin-bottom: 40px;"> 
 
-# Contributing
+# Azure API Management 
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.opensource.microsoft.com.
+This repository is used for publishing [release notes and other updates](releases) for the [Azure API Management](https://aka.ms/apimrocks) product and it is maintained by the product team.
 
-When you submit a pull request, a CLA bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., status check, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
+If you need assistance with Azure API Management, contact Microsoft Azure Support.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+## Links
 
-# Legal Notices
+- [API Management overview](https://aka.ms/apimrocks)
+- [Pricing](https://aka.ms/apimpricing)
+- [Documentation](https://aka.ms/apimdocs)
+- [Whitepapers, blogs, videos, samples, and other resources](https://aka.ms/apimlove)
+ 
+## Other repositories
 
-Microsoft and any contributors grant you a license to the Microsoft documentation and other content
-in this repository under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/legalcode),
-see the [LICENSE](LICENSE) file, and grant you a license to any code in the repository under the [MIT License](https://opensource.org/licenses/MIT), see the
-[LICENSE-CODE](LICENSE-CODE) file.
-
-Microsoft, Windows, Microsoft Azure and/or other Microsoft products and services referenced in the documentation
-may be either trademarks or registered trademarks of Microsoft in the United States and/or other countries.
-The licenses for this project do not grant you rights to use any Microsoft names, logos, or trademarks.
-Microsoft's general trademark guidelines can be found at http://go.microsoft.com/fwlink/?LinkID=254653.
-
-Privacy information can be found at https://privacy.microsoft.com/en-us/
-
-Microsoft and any contributors reserve all other rights, whether under their respective copyrights, patents,
-or trademarks, whether by implication, estoppel or otherwise.
+- [Developer portal](https://aka.ms/apimdevportal)
+- [DevOps Resource Kit](https://aka.ms/apimdevops)
+- [Self-hosted API gateway resources](https://aka.ms/apim/shgw/repo)
+- [Policy snippets and examples](https://aka.ms/apimpolicyexamples)
+- [Visual Studio Code extension](https://github.com/microsoft/vscode-apimanagement)
