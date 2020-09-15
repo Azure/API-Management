@@ -6,9 +6,9 @@
             color: #fff;
             padding: 10px 20px;
             text-align: center;
-            display:inline-block;
+            display: inline-block;
             font-family: sans-serif;
-            font-size: medium;
+            font-size: small;
         }
     </style>
     <div xmlns="http://www.w3.org/1999/xhtml">
