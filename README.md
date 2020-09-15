@@ -4,22 +4,7 @@
 
 This repository is used for publishing [Azure API Management release notes](https://github.com/Azure/API-Management/releases). Developer portal release notes are published in [the developer portal repository](https://aka.ms/apimdevportal/releases).
 
-[![Browse release notes](./media/button.svg)](https://github.com/Azure/API-Management/releases)
-
-    <style>
-        div {
-            background-color: #0078d4;
-            color: #fff;
-            padding: 10px 20px;
-            text-align: center;
-            display: inline-block;
-            font-family: sans-serif;
-            font-size: small;
-        }
-    </style>
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      Browse release notes
-    </div>
+[![Browse release notes >](./media/button.svg)](https://github.com/Azure/API-Management/releases)
 
 ## Related resources
 
