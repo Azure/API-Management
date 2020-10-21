@@ -18,7 +18,7 @@ A regular Azure API Management service update was started on October 21, 2020, a
     ```csharp
     JToken AsJToken(bool preserveContent = false, JsonSerializerSettings settings = null);
     JObject AsJObject(bool preserveContent = false, JsonSerializerSettings settings = null);
-    JArray AsJArray(bool preserveContent = false, JsonSerializerSettings settings = null)
+    JArray AsJArray(bool preserveContent = false, JsonSerializerSettings settings = null);
     ```
 
 1. Liquid templates in the `<set-body>` policy now support accessing JObject variables, for example: `context.Variables.contoso.property` or `context.Variables.contosoarray[0].property`.
