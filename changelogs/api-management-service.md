@@ -21,14 +21,14 @@ A regular Azure API Management service update was started on October 21, 2020, a
     JArray AsJArray(bool preserveContent = false, JsonSerializerSettings settings = null);
     ```
 
-1. Liquid templates in the `<set-body>` policy now support accessing JObject variables, for example: `context.Variables.contoso.property` or `context.Variables.contosoarray[0].property`.
+1. Liquid templates in the `<set-body>` policy now support accessing JObject and JArray variables, for example: `context.Variables.contoso.property` or `context.Variables.contosoarray[0].property`.
 1. `Network Status` API now returns status for the Azure Active Directory endpoint.
 1. `List By Location` operation of the `Network Status` API now includes `isOptional` and `type` properties for each dependency.
-1. `Named Values` API now support filtering by ID.
+1. `Named Values` API now supports filtering by ID.
 
 ### Fixed
 
-1. Developer portal session is now correctly persisted in case of redirections to other websites. Previously, the session could have been lost when using sign-in delegation or redirecting to websites from e-mail notifications.
+1. Developer portal session is now correctly persisted in case of redirects to other websites. Previously, the session could have been lost when using sign-in delegation or redirecting to websites from e-mail notifications.
 1. Developer portal now supports additional OAuth parameters for acquiring access tokens, which enables integration with external identity providers, like Auth0.
 1. API Management now correctly handles wildcard OpenAPI parameters, such as `/sample-operation/{*rest}`.
 1. We fixed several bugs, which could result in inaccurate `Network Status` API responses.
