@@ -22,8 +22,8 @@ A regular Azure API Management service update was started on October 21, 2020, a
     ```
 
 1. Liquid templates in the `<set-body>` policy now support accessing JObject and JArray variables, for example: `context.Variables.contoso.property` or `context.Variables.contosoarray[0].property`.
+1. `validate-jwt` policy now supports JWE tokens compressed with the [default algorithm](https://tools.ietf.org/html/rfc7516#section-4.1.3).
 1. `Network Status` API now returns status for the Azure Active Directory endpoint.
-1. `List By Location` operation of the `Network Status` API now includes `isOptional` and `type` properties for each dependency.
 1. `Named Values` API now supports filtering by ID.
 
 ### Fixed
@@ -33,5 +33,9 @@ A regular Azure API Management service update was started on October 21, 2020, a
 1. API Management now correctly handles wildcard OpenAPI parameters, such as `/sample-operation/{*rest}`.
 1. We fixed several bugs, which could result in inaccurate `Network Status` API responses.
 1. We fixed a bug, where API Management stored incorrect payload in the cache if a request contained conditional headers `If-Modified-Since` or `If-None-Match` and cache entry didn't exist.
+
+### Changed
+
+1. The [`Connection` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection) is no longer forwarded from the backend to the client.
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available on GitHub](https://aka.ms/apimdevportal/releases).
