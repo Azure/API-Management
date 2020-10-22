@@ -1,6 +1,6 @@
 # Azure API Management deprecation announcements
 
-## Legacy developer portal in Azure API Management will retire on 31 October 2023
+## Deprecation: Legacy developer portal will retire on 31 October 2023
 
 *October 21, 2020*
 
