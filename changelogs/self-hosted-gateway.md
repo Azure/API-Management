@@ -1,5 +1,7 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.1.1
+
 ## Release - self-hosted gateway: 1.1.0
 
 *October 14, 2020*
