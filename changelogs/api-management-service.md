@@ -1,5 +1,22 @@
 # Azure API Management service changelog
 
+## Release - API Management service: December, 2020
+
+A regular Azure API Management service update was started on December 7, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+
+### New
+
+1. You can now create and manage API backends in the Azure portal.
+    ![Azure portal - backends view](media-api-management-service/2020-12-backends.png)
+1. You can now log [API inspector traces](https://docs.microsoft.com/azure/api-management/api-management-howto-api-inspector#trace-a-call) to Application Insights and Azure Monitor by setting the `verbosity` property of [the `service/diagnostics` resource](https://docs.microsoft.com/azure/templates/microsoft.apimanagement/service/diagnostics) to `debug`. Azure portal interface for this feature will be released in early 2021.
+1. You can now mask or hide sensitive query parameters and headers in diagnostic logs. The `hide` setting will remove an entity, while `mask` setting will replace it with the word "hidden". Refer to [the `service/diagnostics` API endpoint documentation](https://docs.microsoft.com/rest/api/apimanagement/2020-06-01-preview/diagnostic/createorupdate#datamasking) for more details. Azure portal interface for this feature will be released in early 2021.
+1. You can now monitor database connectivity in secondary regions in the `Network Status` page in the Azure portal as well as via the respective API call, if your API Management service is deployed in multiple regions.
+1. [New management API version `2020-06-01-preview`](https://docs.microsoft.com/rest/api/apimanagement/) is now available for testing.
+
+### Fixed
+
+1. Elements of collections in responses from the `Content Types` and `Content Items` management API endpoints no longer overlap between pages.
+
 ## Release - API Management service: October, 2020
 
 A regular Azure API Management service update was started on October 21, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
