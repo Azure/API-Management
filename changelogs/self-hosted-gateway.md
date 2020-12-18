@@ -1,5 +1,23 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.1.2
+
+*December 18, 2020*
+
+New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+
+### New
+
+None
+
+### Bug fixes
+
+1. Rate limit policy throttling at a lower than configured rate.
+
+### Breaking changes
+
+None
+
 ## Release - self-hosted gateway: 1.1.1
 
 *November 3, 2020*
