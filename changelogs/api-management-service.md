@@ -11,7 +11,7 @@ A regular Azure API Management service update was started on January 21, 2020, a
 1. You can now use the `cache-response` attribute in the `cache-store` policy to specify when to cache the outgoing HTTP response. For example, `<cache-store cache-response="@{return true}" />` will cache all API responses. If the `cache-response` attribute isn't specified, only HTTP responses with the status code `200 OK` will be cached. Documentation will be updated soon.
 1. You can now view service summary, explore service recommendations, and access additional resources in the redesigned overview page in the Azure portal.
     ![Azure portal - overview](media-api-management-service/2021-01-azure-portal-overview.png)
-1. You can now use the `$filter` parameter in the list certificates by service and list named values by service API calls in the API version 2020-06-01 or later to find the entities, for which the refresh from Azure Key Vault action failed. Documentation will be updated soon.
+1. You can now use the `isKeyVaultRefreshFailed=true` query parameter in the list certificates by service and list named values by service API calls in the API version 2020-06-01 or later to find the entities, for which the refresh from Azure Key Vault action failed. Documentation will be updated soon.
 1. You can now monitor connectivity to Azure Key Vault using the network status endpoint in the API version 2020-06-01-preview or later.
 
 ### Fixed
