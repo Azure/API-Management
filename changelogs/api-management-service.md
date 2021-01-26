@@ -1,5 +1,23 @@
 # Azure API Management service changelog
 
+Developer portal follows an independent release lifecycle and the [per-release changelog is available on GitHub](https://aka.ms/apimdevportal/releases).
+
+## Release - API Management service: January, 2021
+
+A regular Azure API Management service update was started on January 21, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+
+### New
+
+1. You can now use the `cache-response` attribute in the `cache-store` policy to specify when to cache the outgoing HTTP response. For example, `<cache-store cache-response="@{return true}" />` will cache all API responses. If the `cache-response` attribute isn't specified, only HTTP responses with the status code `200 OK` will be cached. Documentation will be updated soon.
+1. You can now view service summary, explore service recommendations, and access additional resources in the redesigned overview page in the Azure portal.
+    ![Azure portal - overview](media-api-management-service/2021-01-azure-portal-overview.png)
+1. You can now use the `$filter` parameter in the list certificates by service and list named values by service API calls in the API version 2020-06-01 or later to find the entities, for which the refresh from Azure Key Vault action failed.
+1. You can now monitor connectivity to Azure Key Vault using the network status endpoint in the API version 2020-06-01-preview or later.
+
+### Fixed
+
+1. We fixed an error, which could cause named values and certificates stored in Azure Key Vault to not be refreshed.
+
 ## Release - API Management service: December, 2020
 
 A regular Azure API Management service update was started on December 7, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
@@ -54,5 +72,3 @@ A regular Azure API Management service update was started on October 21, 2020, a
 ### Changed
 
 1. The [`Connection` header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Connection) is no longer forwarded from the backend to the client.
-
-Developer portal follows an independent release lifecycle and the [per-release changelog is available on GitHub](https://aka.ms/apimdevportal/releases).
