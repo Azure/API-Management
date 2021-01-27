@@ -4,7 +4,7 @@ Developer portal follows an independent release lifecycle and the [per-release c
 
 ## Release - API Management service: January, 2021
 
-A regular Azure API Management service update was started on January 21, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+A regular Azure API Management service update was started on January 21, 2021, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
 
 ### New
 
