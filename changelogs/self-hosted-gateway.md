@@ -1,5 +1,23 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.1.3
+
+*February 18, 2021*
+
+New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+
+### New
+
+1. Updated with support for Dapr 1.0 release
+
+### Bug fixes
+
+None
+
+### Breaking changes
+
+None
+
 ## Release - self-hosted gateway: 1.1.2
 
 *December 18, 2020*
