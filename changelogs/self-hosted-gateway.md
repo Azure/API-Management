@@ -8,7 +8,7 @@ New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/ove
 
 ### New
 
-1. Updated with support for Dapr 1.0 release
+1. Updated with support for [Dapr](https://dapr.io) [1.0 release](https://blog.dapr.io/posts/2021/02/17/announcing-dapr-v1.0/).
 
 ### Bug fixes
 
