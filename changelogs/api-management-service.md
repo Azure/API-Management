@@ -2,6 +2,33 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available on GitHub](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: March, 2021
+
+A regular Azure API Management service update was started on March 8, 2021, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. [Integration of named values with Azure Key Vault is now generally available](https://azure.microsoft.com/updates/general-availability-azure-api-management-now-has-named-values-integration-with-azure-key-vault/).
+1. [Integration of certificates with Azure Key Vault is now generally available](https://azure.microsoft.com/updates/support-for-azure-api-management-certificates-in-azure-key-vault-has-reached-general-availability/).
+1. [Visual Studio Code extension is now generally available](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement).
+1. [API Management diagnostics are now in public preview](https://azure.microsoft.com/updates/api-management-diagnostics-now-available-in-public-preview/).
+
+### New
+
+1. You can now add an Application Insights logger by specifying a connection string. Support for this feature in the Azure portal is coming soon.
+
+### Fixed
+
+1. List, GET, PUT, and PATCH operations on named values managed in a key vault are no longer allowed in API versions prior to `2020-06-01-preview`. Those named values will no longer be exported in ARM templates.
+1. Recreating a user-assigned managed identity with the same Azure resource ID no longer results in an error.
+
+### Changed
+
+1. Metrics and monitoring endpoints now use a new DNS service with higher availability. If you have been using the hostname to filter the traffic, make sure to change it to the new address. Otherwise, no action is required; the IP address of the resources has not changed.
+    - `https://global.metrics.nsatc.net/` has changed to `https://global.prod.microsoftmetrics.com/`.
+    - `https://prod3.metrics.nsatc.net:1886/RecoveryService` has changed to `https://prod3.prod.microsoftmetrics.com:1886/RecoveryService`.
+1. Managed identity no longer requires outbound access to Certificate Revocation List endpoints. If you have configured network connectivity to allow outbound traffic to CRL endpoints, you may now remove this dependency.
+
 ## Release - API Management service: January, 2021
 
 A regular Azure API Management service update was started on January 21, 2021, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
