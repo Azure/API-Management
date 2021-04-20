@@ -1,5 +1,23 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.2.0
+
+*April 20, 2021*
+
+New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+
+### New
+
+1. Support for Kubernetes Ingress object - see https://github.com/Azure/api-management-self-hosted-gateway-ingress.
+
+### Bug fixes
+
+None
+
+### Breaking changes
+
+None
+
 ## Release - self-hosted gateway: 1.1.3
 
 *February 18, 2021*
