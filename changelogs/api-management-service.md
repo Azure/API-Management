@@ -2,9 +2,38 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available on GitHub](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: May, 2021
+
+A regular Azure API Management service update was started on May 5, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. [Open-source API Portal is now generally available](https://azure.microsoft.com/updates/apiportal/).
+2. [Azure API Management's support for Availability Zones is now generally available](https://azure.microsoft.com/updates/azure-api-management-support-for-availability-zones-now-generally-available/).
+3. [Request and response validation policies are now generally available](https://azure.microsoft.com/updates/azure-api-management-support-for-request-and-response-validation-policies-has-reached-general-availability/).
+
+### New
+
+1. You can now validate the client certificate with the new `<validate-client-certificate>` policy. Documentation and support in the Azure portal are coming soon.
+2. The Visual Studio Code extension now supports policy debugging for self-hosted gateways running locally.
+3. The Visual Studio Code extension now supports Dapr and validation policies.
+4. The developer portal now supports *resource owner password* grant flow.
+5. The new *Ciphers + Protocols* page in the Azure portal lets you manage API gateways' cipher and protocol configuration and displays a warning if a weak cipher or protocol is enabled.
+6. The *Locations* page in the Azure portal lets you now configure Availability Zones.
+7. You can now apply [validation policies](https://aka.ms/apimdocs/policies/validation) with the visual policy editors in the Azure portal, without writing any policy code.
+8. The `timeout` attribute of the `send-request` policy now supports policy expressions.
+
+### Fixed
+
+1. Caching issues, which might have resulted in a broken developer portal's administrative interface, are now resolved.
+
+### Changed
+
+1. The client certificate renegotiation feature is now disabled for all new and existing API Management services, except for the services that relied on it in the last 30 days (services with at least one API call that resulted in a client certificate request from a policy, not as part of an initial TLS handshake). The API gateway will request a client certificate only if [`HostnameConfiguration`'s](https://docs.microsoft.com/rest/api/apimanagement/2019-12-01/apimanagementservice/createorupdate#hostnameconfiguration) property `negotiateClientCertificate` is set to `true`. If the property is set to `false`, the client certificate won't be available in the `context.Request.Certificate` property.
+
 ## Release - API Management service: March, 2021
 
-A regular Azure API Management service update was started on March 8, 2021, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+A regular Azure API Management service update was started on March 8, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
 
 ### Featured
 
@@ -31,7 +60,7 @@ A regular Azure API Management service update was started on March 8, 2021, and 
 
 ## Release - API Management service: January, 2021
 
-A regular Azure API Management service update was started on January 21, 2021, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+A regular Azure API Management service update was started on January 21, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
 
 ### New
 
@@ -47,7 +76,7 @@ A regular Azure API Management service update was started on January 21, 2021, a
 
 ## Release - API Management service: December, 2020
 
-A regular Azure API Management service update was started on December 7, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+A regular Azure API Management service update was started on December 7, 2020, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
 
 ### New
 
@@ -64,7 +93,7 @@ A regular Azure API Management service update was started on December 7, 2020, a
 
 ## Release - API Management service: October, 2020
 
-A regular Azure API Management service update was started on October 21, 2020, and included the following new features and bug fixes, along other improvements. It may take several weeks for your API Management service to receive the update.
+A regular Azure API Management service update was started on October 21, 2020, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
 
 ### New
 
