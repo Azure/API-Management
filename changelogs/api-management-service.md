@@ -14,7 +14,7 @@ A regular Azure API Management service update was started on May 5, 2021, and in
 
 ### New
 
-1. You can now validate the client certificate with the new `<validate-client-certificate>` policy. Documentation and support in the Azure portal is coming soon.
+1. You can now validate the client certificate with the new `<validate-client-certificate>` policy. Documentation and support in the Azure portal are coming soon.
 2. The Visual Studio Code extension now supports policy debugging for self-hosted gateways running locally.
 3. The Visual Studio Code extension now supports Dapr and validation policies.
 4. The developer portal now supports *resource owner password* grant flow.
