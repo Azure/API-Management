@@ -1,6 +1,38 @@
 # Azure API Management service changelog
 
-Developer portal follows an independent release lifecycle and the [per-release changelog is available on GitHub](https://aka.ms/apimdevportal/releases).
+Developer portal follows an independent release lifecycle and the [per-release changelog is available in the developer portal's GitHub repository](https://aka.ms/apimdevportal/releases).
+
+## Release - API Management service: July, 2021
+
+A regular Azure API Management service update was started on July 5, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. [Native support for WebSocket APIs is now in preview](https://azure.microsoft.com/updates/public-preview-native-support-for-websocket-apis-in-azure-api-management/).
+2. [The cost of additional units in the Premium tier services has been reduced](https://azure.microsoft.com/updates/azure-api-management-premium-tier-price-reduction-for-incremental-purchased-units/).
+
+### New
+
+1. You can now emit custom metrics to Azure Application Insights with the new `emit-metric` policy. [Learn more](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#emit-metric).
+2. Policy expressions now support `System.Net.IPAddress`.
+3. The policy expressions' `context` object now includes the `context.Deployment.GatewayId` property. For managed gateways, its value is `managed`.
+4. You can now export your APIs for consumption in the Power Platform through the dedicated Power Platform page in the Azure portal.
+   ![Power Platform page in the Azure portal](media-api-management-service/2021-07-azure-portal-power-platform.png)
+
+### Fixed
+
+1. We fixed an issue, which caused Developer tier services in a virtual network to not emit resource health events.
+2. The validation policies now correctly return:
+   * Responses with the status code `400 Bad Request` and a precise error description in case of the schema mismatch for errors detected in the incoming requests.
+   * Responses with the status code `502 Bad Gateway` and a generic message in the body for errors detected in the outgoing responses.
+3. We fixed an issue, where the validation policies modified the format of the JSON payload's properties resembling datetime strings.
+4. We fixed an issue, where a character sequence `@*` prevented the policy XML document from being saved.
+5. We fixed an issue, where responses with an empty payload and the `Transfer-Encoding: chunked` header were incorrectly classified as completed and the response latency was miscalculated.
+6. We fixed an issue, where successful API requests were marked as non-successful in the Azure Monitor and Azure Application Insights logs if the client disconnected right after receiving the response.
+
+### Changed
+
+1. Validation policies' `error-variable-name` attribute is now optional.
 
 ## Release - API Management service: May, 2021
 
