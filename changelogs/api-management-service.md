@@ -24,7 +24,7 @@ A regular Azure API Management service update was started on July 5, 2021, and i
 1. We fixed an issue, which caused Developer tier services in a virtual network to not emit resource health events.
 2. The validation policies now correctly return:
    * Responses with the status code `400 Bad Request` and a precise error description in case of the schema mismatch for errors detected in the incoming requests.
-   * Responses with the status code `502 Bad Gateway` and a generic message in the body for errors detected in the outgoing responses.
+   * Responses with the status code `502 Bad Gateway` and a generic message in the body for errors detected in the outgoing responses, to not leak API implementation details.
 3. We fixed an issue, where the validation policies modified the format of the JSON payload's properties resembling datetime strings.
 4. We fixed an issue, where a character sequence `@*` prevented the policy XML document from being saved.
 5. We fixed an issue, where responses with an empty payload and the `Transfer-Encoding: chunked` header were incorrectly classified as completed and the response latency was miscalculated.
