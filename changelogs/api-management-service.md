@@ -29,6 +29,7 @@ A regular Azure API Management service update was started on July 5, 2021, and i
 4. We fixed an issue, where a character sequence `@*` prevented the policy XML document from being saved.
 5. We fixed an issue, where responses with an empty payload and the `Transfer-Encoding: chunked` header were incorrectly classified as completed and the response latency was miscalculated.
 6. We fixed an issue, where successful API requests were marked as non-successful in the Azure Monitor and Azure Application Insights logs if the client disconnected right after receiving the response.
+7. We fixed an issue, which caused the API gateway endpoint of Consumption services to remain unavailable for a few seconds after the service activation.
 
 ### Changed
 
