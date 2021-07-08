@@ -1,8 +1,26 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.2.3
+
+*July 8, 2021*
+
+New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+
+### New
+
+- Removed the 30MB request size limit
+
+### Bug fixes
+
+None
+
+### Breaking changes
+
+None
+
 ## Release - self-hosted gateway: 1.2.2
 
-*Juen 11, 2021*
+*June 11, 2021*
 
 New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
 
