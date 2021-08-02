@@ -25,15 +25,18 @@ A regular Azure API Management service update was started on July 5, 2021, and i
 2. The validation policies now correctly return:
    * Responses with the status code `400 Bad Request` and a precise error description in case of the schema mismatch for errors detected in the incoming requests.
    * Responses with the status code `502 Bad Gateway` and a generic message in the body for errors detected in the outgoing responses, to not leak API implementation details.
-3. We fixed an issue, where the validation policies modified the format of the JSON payload's properties resembling datetime strings.
-4. We fixed an issue, where a character sequence `@*` prevented the policy XML document from being saved.
-5. We fixed an issue, where responses with an empty payload and the `Transfer-Encoding: chunked` header were incorrectly classified as completed and the response latency was miscalculated.
-6. We fixed an issue, where successful API requests were marked as non-successful in the Azure Monitor and Azure Application Insights logs if the client disconnected right after receiving the response.
-7. We fixed an issue, which caused the API gateway endpoint of Consumption services to remain unavailable for a few seconds after the service activation.
+3. We fixed an issue, where the validation policies ignored the `nullable` property of JSON schemas.
+4. We fixed an issue, where the validate content policy didn't fail the validation for empty bodies.
+5. We fixed an issue, where the validation policies modified the format of the JSON payload's properties resembling datetime strings.
+6. We fixed an issue, where a character sequence `@*` prevented the policy XML document from being saved.
+7. We fixed an issue, where responses with an empty payload and the `Transfer-Encoding: chunked` header were incorrectly classified as completed and the response latency was miscalculated.
+8. We fixed an issue, where successful API requests were marked as non-successful in the Azure Monitor and Azure Application Insights logs if the client disconnected right after receiving the response.
+9. We fixed an issue, which caused the API gateway endpoint of Consumption services to remain unavailable for a few seconds after the service activation.
 
 ### Changed
 
 1. Validation policies' `error-variable-name` attribute is now optional.
+2. The `firstName` and `lastName` properties of the `User` entity no longer accept special characters (for example, `<`, `>`, `:`, `;`, `(`, `)`, `\`, `/`, `@`, `!`, and more).
 
 ## Release - API Management service: May, 2021
 
