@@ -2,6 +2,38 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available in the developer portal's GitHub repository](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: August, 2021
+
+A regular Azure API Management service update was started on August 19, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. [API Management's integration with Event Grid is now in preview](https://azure.microsoft.com/updates/public-preview-api-management-and-event-grid-integration/).
+
+### New
+
+1. [The availability zones feature](https://aka.ms/apimaz) is now supported in four new regions: South Africa North, Germany West Central, Korea Central, Norway East.
+2. The `rate-limit-by-key` policy now supports policy expressions in the `calls` and `renewal-period` attributes. The `renewal-period`'s upper limit of 5 minutes still applies.
+3. The upper limit of the `max-size` attribute of the `validate-content` policy can now be increased beyond 100kB through Azure support.
+4. API inspector's traces now include the service name property.
+5. API Management is now more responsive to moves and cluster scale-outs of Service Fabric backends.
+6. The `Network Status` management API response and page in the Azure portal now include details about the connectivity to Azure Application Insights for services with configured Application Insights loggers.
+7. The "Publish" button on the "Developer portal overview" page of API Management services in the Azure portal now uses the new `Portal revisions` API, which makes it easier to publish the portal for virtual-network-injected services.
+8. Clicking on a grid's row in the "Subscriptions" page of Azure API Management services in the Azure portal now brings up a new subscription editing interface.
+
+### Fixed
+
+1. We fixed an issue, which could cause schema definitions to be omitted while importing APIs from OpenAPI files.
+2. We fixed a paging issue for API calls for retrieving the list of APIs from the developer portal.
+3. The `PublisherEmail` service property now supports email addresses with the `#` character.
+
+### Changed
+
+1. The runtime `context.Deployment.ServiceName` property and the `Service Name` attribute in Azure Application Insights logs no longer include the default hostname suffix `.azure-api.net` for API Management services in the Developer, Basic, Standard, and Premium tiers.
+2. Consumption tier services now allow request URLs up to 16384 characters long.
+3. All responses with status code lower than `400` are now considered successful in the built-in Analytics, metrics, Azure Monitor logs, and Azure Application Insights telemetry.
+4. The API gateway can no longer be disabled if the API Management service is in an internal virtual network.
+
 ## Release - API Management service: July, 2021
 
 A regular Azure API Management service update was started on July 5, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
