@@ -4,7 +4,7 @@
 
 *August 25, 2021*
 
-New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+New **preview** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
 
 ### New
 
