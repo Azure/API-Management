@@ -1,5 +1,33 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.2.4
+
+*August 31, 2021*
+
+New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+
+### New
+
+None
+
+### Bug fixes
+
+- Upgraded to use base image mcr.microsoft.com/dotnet/aspnet:3.1.18-alpine3.13 which addressed the following vulnerabilities:
+
+  - CVE-2021-36159
+  - CVE-2021-22924
+  - CVE-2021-22922
+  - CVE-2021-22926
+  - CVE-2021-36222
+  - CVE-2021-22922
+  - CVE-2021-22924
+
+- Fixed the issue causing gateway's failure to start rather than fallback to local configuration snapshot when cloud configuration endpoint is not available
+
+### Breaking changes
+
+None
+
 ## Release - self-hosted gateway: 1.2.4-preview-1
 
 *August 25, 2021*
