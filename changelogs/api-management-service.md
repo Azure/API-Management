@@ -30,7 +30,7 @@ A regular Azure API Management service update was started on August 19, 2021, an
 
 ### Changed
 
-1. The runtime `context.Deployment.ServiceName` property and the `Service Name` attribute in Azure Application Insights logs no longer include the default hostname suffix `.azure-api.net` for API Management services in the Developer, Basic, Standard, and Premium tiers.
+1. ~~The runtime `context.Deployment.ServiceName` property and the `Service Name` attribute in Azure Application Insights logs no longer include the default hostname suffix `.azure-api.net` for API Management services in the Developer, Basic, Standard, and Premium tiers.~~ This change has been reverted.
 2. Consumption tier services now allow request URLs up to 16384 characters long.
 3. All responses with status code lower than `400` are now considered successful in the built-in Analytics, metrics, Azure Monitor logs, and Azure Application Insights telemetry.
 4. The API gateway can no longer be disabled if the API Management service is in an internal virtual network.
