@@ -1,5 +1,25 @@
 # Self-hosted API gateway changelog
 
+## Release - self-hosted gateway: 1.2.5
+
+*September 29, 2021*
+
+New **stable** version of the [self-hosted gateway](https://aka.ms/apim/shgw/overview) is now available. Full list of container versions can be found [here](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
+
+### New
+
+None
+
+### Bug fixes
+
+- Concurrency bug in pooled connection acquisition logic that caused request failures under high load
+- Bug causing intermittent failures of large (30MB+) requests
+- Bug preventing request logs and gateway errors from appearing in standard output
+
+### Breaking changes
+
+None
+
 ## Release - self-hosted gateway: 1.2.4
 
 *August 31, 2021*
