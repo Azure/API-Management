@@ -2,6 +2,33 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available in the developer portal's GitHub repository](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: October, 2021
+
+A regular Azure API Management service update was started on October 25, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. TODO
+
+### New
+
+1. API Management now supports [managed identity authentication for communication with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication). To configure it, specify the `identityClientId` key in the `properties.credentials` property of the `Logger` object and set the value to:
+    * `systemAssigned` for a system-assigned identity, or
+    * ID of a user-assigned identity.
+
+### Fixed
+
+1. We fixed an [issue](https://github.com/Azure/api-management-developer-portal/issues/1354), where the `Portal Revision` API marked all new developer portal revisions as current, regardless of the `isCurrent` parameter's value.
+2. We fixed an issue, where the `specified-parameter-action` attribute of the `validate-parameters` policy was ignored.
+3. Scale-outs no longer affect existing service capacity. Previously, they forced a restart of the underlying nodes. This optimization applies only to the [single-tenant v2 (`stv2`) infrastructure](https://docs.microsoft.com/azure/api-management/compute-infrastructure#compute-platform-versions).
+4. All header's schema properties are now preserved when importing an OpenAPI v3 document. Schemas for headers are supported in management API versions `2021-01-01-preview` or later.
+5. Properties with `format: date` in OpenAPI documents are no longer converted to a date-time object.
+6. Unknown countries are now reported as `Unknown` in the built-in API reports (*Analytics* tab in the Azure portal).
+
+### Information
+
+1. Services deployed in a virtual network with forced tunneling need to allow an [additional dependency for Windows activations](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation). Although this requirement wasn't documented, it is not introduced by the current release.
+
 ## Release - API Management service: August, 2021
 
 A regular Azure API Management service update was started on August 19, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
