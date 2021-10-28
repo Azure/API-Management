@@ -15,6 +15,7 @@ A regular Azure API Management service update was started on October 25, 2021, a
 1. API Management now supports [managed identity authentication for communication with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication). To configure it, specify the `identityClientId` key in the `properties.credentials` property of the `Logger` object and set the value to:
     * `systemAssigned` for a system-assigned identity, or
     * ID of a user-assigned identity.
+2. Support for the multi-dimensional "Request" metric in Azure Monitor is now generally available.
 
 ### Fixed
 
@@ -24,6 +25,7 @@ A regular Azure API Management service update was started on October 25, 2021, a
 4. All header's schema properties are now preserved when importing an OpenAPI v3 document. Schemas for headers are supported in management API versions `2021-01-01-preview` or later.
 5. Properties with `format: date` in OpenAPI documents are no longer converted to a date-time object.
 6. Unknown countries are now reported as `Unknown` in the built-in API reports (*Analytics* tab in the Azure portal).
+7. WebSocket APIs now support backend service URI with the WebSocket schema and a custom port.
 
 ### Information
 
