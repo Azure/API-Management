@@ -21,7 +21,7 @@ A regular Azure API Management service update was started on October 25, 2021, a
 
 1. We fixed an [issue](https://github.com/Azure/api-management-developer-portal/issues/1354), where the `Portal Revision` API marked all new developer portal revisions as current, regardless of the `isCurrent` parameter's value.
 2. We fixed an issue, where the `specified-parameter-action` attribute of the `validate-parameters` policy was ignored.
-3. Scale-outs no longer affect existing service capacity. Previously, they forced a restart of the underlying nodes. This optimization applies only to the [single-tenant v2 (`stv2`) infrastructure](https://docs.microsoft.com/azure/api-management/compute-infrastructure#compute-platform-versions).
+3. Scale-outs of API Management services in the [single-tenant v2 (`stv2`) infrastructure](https://docs.microsoft.com/azure/api-management/compute-infrastructure#compute-platform-versions) no longer affect existing service capacity. Previously, each scale-out forced a restart of the existing nodes. This optimization has already been implemented in services in the `stv1` infrastructure and those services aren't affected by the change.
 4. All header's schema properties are now preserved when importing an OpenAPI v3 document. Schemas for headers are supported in management API versions `2021-01-01-preview` or later.
 5. Properties with `format: date` in OpenAPI documents are no longer converted to a date-time object.
 6. Unknown countries are now reported as `Unknown` in the built-in API reports (*Analytics* tab in the Azure portal).
