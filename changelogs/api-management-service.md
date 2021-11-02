@@ -2,6 +2,39 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available in the developer portal's GitHub repository](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: October, 2021
+
+A regular Azure API Management service update was started on October 25, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. [Public preview: GraphQL passthrough support in Azure API Management](https://azure.microsoft.com/updates/public-preview-graphql-passthrough-support-in-azure-api-management/).
+2. [General availability: Native support for WebSocket APIs](https://azure.microsoft.com/updates/general-availability-native-support-for-websocket-apis/).
+3. [General availability: API Management and Event Grid Integration](https://azure.microsoft.com/updates/general-availability-api-management-event-grid-integration/).
+
+### New
+
+1. You can now import [Azure Container App](https://azure.microsoft.com/services/container-apps/) as an API in API Management.
+   ![Azure Container App import](media-api-management-service/2021-10-azure-container-app-import.png)
+2. API Management now supports [managed identity authentication for communication with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication). To configure it, specify the `identityClientId` key in the `properties.credentials` property of the `Logger` object and set the value to:
+    * `systemAssigned` for a system-assigned identity, or
+    * ID of a user-assigned identity.
+3. Support for the multi-dimensional `Request` metric in Azure Monitor is now generally available.
+
+### Fixed
+
+1. We fixed an [issue](https://github.com/Azure/api-management-developer-portal/issues/1354), where the `Portal Revision` API marked all new developer portal revisions as current, regardless of the `isCurrent` parameter's value.
+2. We fixed an issue, where the `specified-parameter-action` attribute of the `validate-parameters` policy was ignored.
+3. Scale-outs of API Management services in the [single-tenant v2 (`stv2`) infrastructure](https://docs.microsoft.com/azure/api-management/compute-infrastructure#compute-platform-versions) no longer affect existing service capacity. Previously, each scale-out forced a restart of the existing nodes. This optimization has already been implemented in services in the `stv1` infrastructure and those services aren't affected by the change.
+4. All header's schema properties are now preserved when importing an OpenAPI v3 document. Schemas for headers are supported in management API versions `2021-01-01-preview` or later.
+5. Properties with `format: date` in OpenAPI documents are no longer converted to a date-time object.
+6. Unknown countries are now reported as `Unknown` in the built-in API reports (*Analytics* tab in the Azure portal).
+7. WebSocket APIs now support backend service URI with the WebSocket schema and a custom port.
+
+### Information
+
+1. Services deployed in a virtual network with forced tunneling need to allow an [additional dependency for Windows activations](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/custom-routes-enable-kms-activation). Although this requirement wasn't documented, it is not introduced by the current release.
+
 ## Release - API Management service: August, 2021
 
 A regular Azure API Management service update was started on August 19, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
