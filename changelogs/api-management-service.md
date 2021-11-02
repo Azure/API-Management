@@ -10,13 +10,16 @@ A regular Azure API Management service update was started on October 25, 2021, a
 
 1. [Public preview: GraphQL passthrough support in Azure API Management](https://azure.microsoft.com/updates/public-preview-graphql-passthrough-support-in-azure-api-management/).
 2. [General availability: Native support for WebSocket APIs](https://azure.microsoft.com/updates/general-availability-native-support-for-websocket-apis/).
+3. [General availability: API Management and Event Grid Integration](https://azure.microsoft.com/updates/general-availability-api-management-event-grid-integration/).
 
 ### New
 
-1. API Management now supports [managed identity authentication for communication with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication). To configure it, specify the `identityClientId` key in the `properties.credentials` property of the `Logger` object and set the value to:
+1. You can now import [Azure Container App](https://azure.microsoft.com/services/container-apps/) as an API in API Management.
+   ![Azure Container App import](media-api-management-service/2021-10-azure-container-app-import)png
+2. API Management now supports [managed identity authentication for communication with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication). To configure it, specify the `identityClientId` key in the `properties.credentials` property of the `Logger` object and set the value to:
     * `systemAssigned` for a system-assigned identity, or
     * ID of a user-assigned identity.
-2. Support for the multi-dimensional "Request" metric in Azure Monitor is now generally available.
+3. Support for the multi-dimensional "Request" metric in Azure Monitor is now generally available.
 
 ### Fixed
 
