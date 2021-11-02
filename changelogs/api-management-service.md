@@ -15,7 +15,7 @@ A regular Azure API Management service update was started on October 25, 2021, a
 ### New
 
 1. You can now import [Azure Container App](https://azure.microsoft.com/services/container-apps/) as an API in API Management.
-   ![Azure Container App import](media-api-management-service/2021-10-azure-container-app-import)png
+   ![Azure Container App import](media-api-management-service/2021-10-azure-container-app-import.png)
 2. API Management now supports [managed identity authentication for communication with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/azure-ad-authentication). To configure it, specify the `identityClientId` key in the `properties.credentials` property of the `Logger` object and set the value to:
     * `systemAssigned` for a system-assigned identity, or
     * ID of a user-assigned identity.
