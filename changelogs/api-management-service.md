@@ -8,7 +8,8 @@ A regular Azure API Management service update was started on October 25, 2021, a
 
 ### Featured
 
-1. TODO
+1. [Public preview: GraphQL passthrough support in Azure API Management](https://azure.microsoft.com/updates/public-preview-graphql-passthrough-support-in-azure-api-management/).
+2. [General availability: Native support for WebSocket APIs](https://azure.microsoft.com/updates/general-availability-native-support-for-websocket-apis/).
 
 ### New
 
