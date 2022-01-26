@@ -2,6 +2,28 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available in the developer portal's GitHub repository](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: January, 2022
+
+A regular Azure API Management service update was started on January 20, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
+
+### Featured
+
+1. [Managed certificate support is now in public preview](https://azure.microsoft.com/updates/public-preview-managed-certificate-support-for-azure-api-management/).
+
+### New
+
+1. Published developer portals are now automatically upgraded to new portal releases, without the need to republish the portal manually. Automated upgrades will preserve the latest published content; they won't publish saved but unpublished content.
+
+### Fixed
+
+1. Newly created diagnostic settings will no longer be configured to log request query parameters by default. As part of this change, [`Diagnostic` entity](https://docs.microsoft.com/rest/api/apimanagement/current-ga/diagnostic/create-or-update#datamasking)'s `dataMasking.queryParams` properties will be set with the following wildcard configuration `{ "value": "*", "mode": "Hide"}`. The same wildcard configuration can also be applied to `dataMasking.headers`.
+2. Self-hosted gateway now properly handles a certificate change (`certificateId`) for existing hostnames.
+3. Multiple `validate-content` policies can now be specified in a single policy section.
+4. It is now possible to delete a resource group with an `stv2`-based API Management service in a virtual network. Previously, the deletion could fail due to an unreleased public IP resource.
+5. `ConfigurationChange` event is no longer logged in Resource Health for API Management service backups.
+6. `tracestate` header values are no longer truncated after the first key-value pair.
+7. An attempt to deploy an `stv2` API Management service into a virtual network subnet with an `stv1` API Management service will now result in a descriptive error message.
+
 ## Release - API Management service: October, 2021
 
 A regular Azure API Management service update was started on October 25, 2021, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
