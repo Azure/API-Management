@@ -13,6 +13,9 @@ A regular Azure API Management service update was started on January 20, 2022, a
 ### New
 
 1. Published developer portals are now automatically upgraded to new portal releases, without the need to republish the portal manually. Automated upgrades will preserve the latest published content; they won't publish saved but unpublished content.
+2. You can now use curly brackets in a SOAP action URL template (for example, `/soapAction={wildcard}`) to define a wildcard SOAP action, which will match any SOAP request that doesn't have a dedicated action defined in the API. The value inside the curly brackets doesn't affect the execution.
+3. Availability zones are now supported in the East Asia region.
+4. New .NET SDK for the management API [is now available](https://www.nuget.org/packages/Microsoft.Azure.Management.ApiManagement/8.0.0-preview).
 
 ### Fixed
 
@@ -20,7 +23,7 @@ A regular Azure API Management service update was started on January 20, 2022, a
 2. Self-hosted gateway now properly handles a certificate change (`certificateId`) for existing hostnames.
 3. Multiple `validate-content` policies can now be specified in a single policy section.
 4. It is now possible to delete a resource group with an `stv2`-based API Management service in a virtual network. Previously, the deletion could fail due to an unreleased public IP resource.
-5. `ConfigurationChange` event is no longer logged in Resource Health for API Management service backups.
+5. `ConfigurationChange` event is no longer logged in [Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) for API Management service backups.
 6. `tracestate` header values are no longer truncated after the first key-value pair.
 7. An attempt to deploy an `stv2` API Management service into a virtual network subnet with an `stv1` API Management service will now result in a descriptive error message.
 
