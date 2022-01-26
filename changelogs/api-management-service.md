@@ -15,7 +15,7 @@ A regular Azure API Management service update was started on January 20, 2022, a
 1. Published developer portals are now automatically upgraded to new portal releases, without the need to republish the portal manually. Automated upgrades will preserve the latest published content; they won't publish saved but unpublished content.
 2. You can now use curly brackets in a SOAP action URL template (for example, `/soapAction={wildcard}`) to define a wildcard SOAP action, which will match any SOAP request that doesn't have a dedicated action defined in the API. The value inside the curly brackets doesn't affect the execution.
 3. Availability zones are now supported in the East Asia region.
-4. New .NET SDK for the management API [is now available](https://www.nuget.org/packages/Microsoft.Azure.Management.ApiManagement/8.0.0-preview).
+4. New .NET SDK for the management API [is now available in preview](https://www.nuget.org/packages/Microsoft.Azure.Management.ApiManagement/8.0.0-preview).
 
 ### Fixed
 
