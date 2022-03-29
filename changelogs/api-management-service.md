@@ -40,6 +40,13 @@ A regular Azure API Management service update was started on March 28, 2022. It 
     * HTML injection widget, which allows you to render custom HTML code in an iframe in your managed or self-hosted developer portal pages.
     * Revised code samples in the test console and a new code sample for Swift.
 
+### DevOps Resource Kit releases
+
+1. [1.0.0-beta.1](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.1):
+    * Major code refactoring to the Extractor to make it more maintainable and easier to contribute to.
+    * Update of the API version used in the Extractor to the latest generally available version (`2021-08-01`).
+    * Other fixes, improvements, and community contributions.
+
 ## Release - API Management service: January, 2022
 
 A regular Azure API Management service update was started on January 20, 2022, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
