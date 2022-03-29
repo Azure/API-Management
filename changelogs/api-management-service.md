@@ -2,6 +2,51 @@
 
 Developer portal follows an independent release lifecycle and the [per-release changelog is available in the developer portal's GitHub repository](https://aka.ms/apimdevportal/releases).
 
+## Release - API Management service: March, 2022
+
+A regular Azure API Management service update was started on March 28, 2022. It may take several weeks for your API Management service to receive the update.
+
+**Starting with this service release, we will be posting regular release announcements only here, on GitHub, and we will not be posting them on [Azure Updates](https://aka.ms/apimupdates). We will continue to post feature or breaking change announcements on Azure Updates and reference them in regular release notes on GitHub.**
+
+### Featured
+
+1. [SOAP and XML request and response validation is now generally available](https://azure.microsoft.com/updates/general-availability-soap-and-xml-request-and-response-validation/).
+2. [Developer portal widget for embedding custom HTML code is now generally available](https://azure.microsoft.com/updates/general-availability-developer-portal-widget-for-embedding-custom-html-code/).
+3. [Azure Private Link support in Azure API Management is now in public preview](https://azure.microsoft.com/updates/public-preview-azure-private-link-support-in-azure-api-management-2/).
+4. [Tools for easier import of WSDL APIs and XSD and JSON schemas are now available on GitHub](https://github.com/Azure-Samples/api-management-schema-import).
+
+### Breaking change advisory
+
+1. [Review your virtual network configuration - it may be affected by IP address changes in March 2023](https://azure.microsoft.com/updates/ip-address-changes-will-begin-affecting-your-ability-to-manage-your-virtual-networkenabled-api-management-services-on-31-marc/).
+
+### Fixes and improvements
+
+1. To protect services from username enumeration attacks, any attempt to reset user's password now results in a successful response from the API Management service. Previously, API Management returned `404 Not Found` if the username didn't exist in the service.
+2. Users no longer can subscribe to products that they don't have access to. Previously, product access configuration only restricted retrieval of product details and its APIs and it didn't prevent subscription attempts.
+3. If a policy expression contains a loop and takes over five seconds to execute, API Management will now terminate its execution to avoid infinite loops.
+4. You can now reference JSON schema resources from another JSON schema resource. The new [schema entity](https://docs.microsoft.com/rest/api/apimanagement/current-ga/global-schema) is used for [request or response validation](https://docs.microsoft.com/azure/api-management/validation-policies#schemas-for-content-validation).
+5. Null values are no longer accepted inside the `certificateIds` array when creating or updating backend entities.
+6. Client disconnects from gateway are no longer reported as errors.
+7. `X-Forwarded-For` header logs now include addresses added by the gateway.
+8. Severity level is now correctly configured in Application Insights traces. Previously, `verbose` and `information` traces were logged to Application Insights with higher severity.
+9. GraphQL request processing is now faster and more efficient thanks to a series of optimizations.
+
+### Developer portal releases
+
+1. [2.14.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.14.0) - highlights:
+   * Support for `contact`, `license`, and `termsOfService` OpenAPI properties in the API reference pages.
+   * Improvements to GraphQL API reference pages, including the _code view_.
+2. [2.13.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.13.0) - highlights:
+    * HTML injection widget, which allows you to render custom HTML code in an iframe in your managed or self-hosted developer portal pages.
+    * Revised code samples in the test console and a new code sample for Swift.
+
+### DevOps Resource Kit releases
+
+1. [1.0.0-beta.1](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.1):
+    * Major code refactoring to the Extractor to make it more maintainable and easier to contribute to.
+    * Update of the API version used in the Extractor to the latest generally available version (`2021-08-01`).
+    * Other fixes, improvements, and community contributions.
+
 ## Release - API Management service: January, 2022
 
 A regular Azure API Management service update was started on January 20, 2022, and included the following new features, bug fixes, and other improvements. It may take several weeks for your API Management service to receive the update.
