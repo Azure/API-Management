@@ -26,6 +26,10 @@ A regular Azure API Management service update was started on May 10, 2022. It ma
    * The authorization server information has been temporarily removed from the API details widget, until a more complete solution is in place.
    * Terms of use are now included in the authentication pages.
 
+### Self-Hosted Gateway Helm releases
+
+1. [1.1.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.1.0)
+
 ### DevOps Resource Kit releases
 
 1. [1.0.0-beta.3](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.3)
