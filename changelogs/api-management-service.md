@@ -6,9 +6,11 @@ A regular Azure API Management service update was started on May 10, 2022. It ma
 
 ### New features, fixes, and improvements
 
-1. Availability zone deployments are now available in the Switzerland North region.
-2. You can now access the API Management service name in runtime policies with the new `context.Deployment.ServiceId` property. The `ServiceId` property is now included in Application Insights logs.
-3. `validate-parameters` and `validate-content` policies now support GUID properties defined as `format: uuid`.
+1. GraphQL support now includes [policy-based authorizations](https://docs.microsoft.com/azure/api-management/graphql-validation-policies), `graphql-ws`-based subscriptions, and improved developer portal and Azure portal interfaces.
+2. Availability zone deployments are now available in the Switzerland North region.
+3. You can now access the API Management service name in runtime policies with the new `context.Deployment.ServiceId` property. The `ServiceId` property is also included in Application Insights logs.
+4. `validate-parameters` and `validate-content` policies now support GUID properties defined as `format: uuid`.
+5. Event Hub loggers can now use managed identity authentication. Azure portal interface for configuring this authentication is coming soon.
 
 ### Changes
 
@@ -26,14 +28,15 @@ A regular Azure API Management service update was started on May 10, 2022. It ma
    * The authorization server information has been temporarily removed from the API details widget, until a more complete solution is in place.
    * Terms of use are now included in the authentication pages.
 
-### Self-Hosted Gateway Helm releases
+### Self-hosted gateway Helm releases
 
 1. [1.1.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.1.0)
 
 ### DevOps Resource Kit releases
 
-1. [1.0.0-beta.3](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.3)
-2. [1.0.0-beta.2](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.2)
+1. [1.0.0-beta.4](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.4)
+2. [1.0.0-beta.3](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.3)
+3. [1.0.0-beta.2](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.2)
 
 ## Release - API Management service: March, 2022
 
