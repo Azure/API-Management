@@ -16,7 +16,7 @@ A regular Azure API Management service update was started on June 20, 2022. It m
 
 ### New features, fixes, and improvements
 
-1. Email notifications now include SPF and DKIM signatures.
+1. Email notifications now have valid SPF and DKIM signatures. Previously, the generated DKIM signatures were invalid.
 2. `System.Net.IpAddress` and `System.Enum` namespaces are now allowed in policy expressions.
 3. Scale-up operations will now fail faster if there isn't enough space in a virtual network subnet to accommodate additional API Management service units. The error will be included in the Activity Logs.
 4. We fixed an issue, where scale-up operations could get stuck for multiple days in `stv1` deployments. As a precaution against other potential problems with the `stv1` architecture, we recommend migrating services to the `stv2` architecture. [Learn more about the migration process](https://docs.microsoft.com/azure/api-management/compute-infrastructure#how-do-i-migrate-to-the-stv2-platform).
