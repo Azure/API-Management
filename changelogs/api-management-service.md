@@ -1,5 +1,42 @@
 # Azure API Management service changelog
 
+## Release - API Management service: June, 2022
+
+A regular Azure API Management service update was started on June 20, 2022. It may take several weeks for your API Management service to receive the update.
+
+### Highlights
+
+1. [GraphQL passthrough support is now generally available](https://azure.microsoft.com/updates/general-availability-graphql-passthrough-support-in-azure-api-management/)
+2. [Synthetic GraphQL is now in public preview](https://azure.microsoft.com/updates/public-preview-synthetic-graphql/)
+3. [Authorizations are now in public preview](https://azure.microsoft.com/updates/public-preview-api-management-authorizations/)
+4. [Self-hosted gateway v2 is now generally available](https://azure.microsoft.com/updates/generally-available-api-management-selfhosted-gateway-version-2/)
+5. [Reusable policy fragments are now generally available](https://azure.microsoft.com/updates/generally-available-api-management-reusable-policy-fragments/)
+6. [Developer portal's support for Content Security Policy and self-hosted portal CORS configuration are now generally available](https://azure.microsoft.com/updates/generally-available-api-management-content-security-policy-and-cors-configuration-support/)
+7. [Learn how to prevent or mitigate OWASP API Security Top 10 threats in Azure API Management](https://aka.ms/apimdocs/security/owasp)
+
+### New features, fixes, and improvements
+
+1. Email notifications now have valid SPF and DKIM signatures. Previously, the generated DKIM signatures were invalid.
+2. `System.Net.IpAddress` and `System.Enum` namespaces are now allowed in policy expressions.
+3. Scale-up operations will now fail faster if there isn't enough space in a virtual network subnet to accommodate additional API Management service units. The error will be included in the Activity Logs.
+4. We fixed an issue, where scale-up operations could get stuck for multiple days in `stv1` deployments. As a precaution against other potential problems with the `stv1` architecture, we recommend migrating services to the `stv2` architecture. [Learn more about the migration process](https://docs.microsoft.com/azure/api-management/compute-infrastructure#how-do-i-migrate-to-the-stv2-platform).
+5. We fixed an issue, where WebSocket connections couldn't be established for requests with multiple `Connection` headers.
+6. Management API SAS token can no longer be generated with an expiration date set in the past.
+7. "Dapr" is now a reserved backend entity ID.
+
+### Developer portal releases
+
+1. [2.17.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.17.0)
+
+### Self-hosted gateway Helm releases
+
+1. [1.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.2.0)
+
+### DevOps Resource Kit releases
+
+1. [1.0.0-beta.6](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.6)
+2. [1.0.0-beta.5](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.5)
+
 ## Release - API Management service: May, 2022
 
 A regular Azure API Management service update was started on May 10, 2022. It may take several weeks for your API Management service to receive the update.
