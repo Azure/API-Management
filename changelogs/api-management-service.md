@@ -1,5 +1,51 @@
 # Azure API Management service changelog
 
+## Release - API Management service: July, 2022
+
+A regular Azure API Management service update was started on July 20, 2022. It may take several weeks for your API Management service to receive the update.
+
+### New features, fixes, and improvements
+
+1. We optimized the loading time of API schemas for management plane (including Azure portal) and developer portal operations.
+2. We increased the maximum length of each URL path segment from 520 to 1024 characters.
+3. We fixed an issue, where API Management allowed creation of multiple API versions with empty identifiers within one API version set.
+4. We fixed an issue, where API Management deserialized C-style hex strings in exported OpenAPI files as hex values.
+5. We fixed an issue, where API Management failed to export OpenAPI definitions if referenced schemas didn't have the `typename` property defined.
+6. Improvements to the GraphQL support:
+    1. API Management now supports GraphQL requests with the content type `application/graphql`. Previously, such requests resulted in a `400 Bad request` error.
+    2. GraphQL resolvers can now be configured in policy fragments for reuse in the `backend` policy section.
+    3. We fixed an issue, where creating a new GraphQL API using the property `format: graphql-format` resulted in failures in execution of the management API operations or ARM templates. This property worked only for existing GraphQL APIs.
+    4. We fixed an issue, where accessing `context.Request` in a synthetic GraphQL API's `set-graphql-resolver` policy would overwrite the `context.Request` value.
+    5. We fixed an issue, where parsing of lists with scalar values resulted in runtime errors.
+
+### Developer portal releases
+
+1. [2.18.1](https://github.com/Azure/api-management-developer-portal/releases/tag/2.18.1)
+2. [2.18.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.18.0)
+
+### Self-hosted gateway container image releases
+
+1. [2.1.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.3)
+2. [2.1.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.2)
+3. [2.1.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.1)
+4. [2.1.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.0)
+5. [2.0.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.4)
+6. [2.0.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.3)
+7. [2.0.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.2)
+8. [2.0.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.1)
+9. [2.0.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.0)
+
+### Self-hosted gateway Helm chart releases
+
+1. [1.4.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.4.0)
+2. [1.3.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.3.1)
+3. [1.3.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.3.0)
+
+### DevOps Resource Kit releases
+
+1. [1.0.0-beta.8](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.8)
+2. [1.0.0-beta.7](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.7)
+
 ## Release - API Management service: June, 2022
 
 A regular Azure API Management service update was started on June 20, 2022. It may take several weeks for your API Management service to receive the update.
