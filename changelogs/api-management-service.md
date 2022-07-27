@@ -12,7 +12,8 @@ A regular Azure API Management service update was started on July 20, 2022. It m
 4. We fixed an issue, where API Management deserialized C-style hex strings in exported OpenAPI files as hex values.
 5. We fixed an issue, where API Management failed to export OpenAPI definitions if referenced schemas didn't have the `typename` property defined.
 6. The `set-body` policy now supports `xsi-nil` attribute with two values (`"blank"` and `"null"`) for controlling how elements marked with `xsi:nil="true"` are represented in XML payloads. If the value is set to `blank`, API Management uses the prior behavior, where nil is represented as an empty string. If the value is set to `null`, nil is represented with a null value.
-7. Improvements to the GraphQL support:
+7. You can now monitor inbound connectivity to the API Management control plane in the "Network status" tab of the "Network" page in the Azure portal interface for your API Management service.
+8. Improvements to the GraphQL support:
     1. API Management now supports GraphQL requests with the content type `application/graphql`. Previously, such requests resulted in a `400 Bad request` error.
     2. GraphQL resolvers can now be configured in policy fragments for reuse in the `backend` policy section.
     3. We fixed an issue, where creating a new GraphQL API using the property `format: graphql-format` resulted in failures in execution of the management API operations or ARM templates. This property worked only for existing GraphQL APIs.
@@ -29,12 +30,15 @@ A regular Azure API Management service update was started on July 20, 2022. It m
 1. [2.1.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.3)
 2. [2.1.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.2)
 3. [2.1.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.1)
-4. [2.1.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.0)
-5. [2.0.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.4)
-6. [2.0.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.3)
-7. [2.0.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.2)
-8. [2.0.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.1)
-9. [2.0.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.0)
+4. [2.0.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.4)
+
+Browse the recently added release notes for older images:
+
+1. [2.1.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.0)
+2. [2.0.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.3)
+3. [2.0.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.2)
+4. [2.0.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.1)
+5. [2.0.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.0.0)
 
 ### Self-hosted gateway Helm chart releases
 
