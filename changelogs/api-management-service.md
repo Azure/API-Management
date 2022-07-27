@@ -13,7 +13,9 @@ A regular Azure API Management service update was started on July 20, 2022. It m
 5. We fixed an issue, where API Management failed to export OpenAPI definitions if referenced schemas didn't have the `typename` property defined.
 6. The `set-body` policy now supports `xsi-nil` attribute with two values (`"blank"` and `"null"`) for controlling how elements marked with `xsi:nil="true"` are represented in XML payloads. If the value is set to `blank`, API Management uses the prior behavior, where nil is represented as an empty string. If the value is set to `null`, nil is represented with a null value.
 7. You can now monitor inbound connectivity to the API Management control plane in the "Network status" tab of the "Network" page in the Azure portal interface for your API Management service.
-8. Improvements to the GraphQL support:
+8. [Authorizations](https://docs.microsoft.com/azure/api-management/authorizations-overview) now support Salesforce, ServiceNow, Twitter, Stripe, and Zendesk identity providers.
+9. Authorizations now support PKCE authorization flow in the generic OAuth2 identity provider.
+10. Improvements to the GraphQL support:
     1. API Management now supports GraphQL requests with the content type `application/graphql`. Previously, such requests resulted in a `400 Bad request` error.
     2. GraphQL resolvers can now be configured in policy fragments for reuse in the `backend` policy section.
     3. We fixed an issue, where creating a new GraphQL API using the property `format: graphql-format` resulted in failures in execution of the management API operations or ARM templates. This property worked only for existing GraphQL APIs.
