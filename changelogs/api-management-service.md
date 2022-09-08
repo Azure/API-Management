@@ -1,5 +1,49 @@
 # Azure API Management service changelog
 
+## Release - API Management service: September, 2022
+
+A regular Azure API Management service update was started on September 7, 2022. It may take several weeks for your API Management service to receive the update.
+
+### Highlights
+
+1. [Custom widget support in managed developer portal is now generally available](https://azure.microsoft.com/generally-available-api-management-custom-widget-support-in-developer-portal/).
+2. [Expanded support for Azure Policy definitions for Azure API Management is now generally available](https://azure.microsoft.com/updates/generally-available-azure-api-management-expanded-support-for-azure-policy-definitions/).
+3. [Support for OAuth 2.0 authorization code flow using PKCE for developer portal user sign-in and sign-up is now generally available](https://azure.microsoft.com/updates/generally-available-azure-api-management-support-for-msal-in-developer-portal/).
+
+### New features, fixes, and improvements
+
+1. The new `allow-additional-properties` attribute of the `validate-content` policy lets you implement a runtime override of the `additionalProperties` value configured in the JSON schemas - for example, to always prevent requests or responses with undefined schema properties, regardless of the JSON configuration. Documentation will be released soon in the [`validate-content` policy reference](https://docs.microsoft.com/azure/api-management/validation-policies).
+2. Account confirmation links in the account registration email notifications sent to developer portal users no longer include user ID and identity in the URL.
+3. We fixed an issue, where request and response validation policies would skip the `on-error` policy section if multiple validations failed.
+4. Azure API Management no longer depends on the SMTP endpoints for sending email notifications and those endpoints can now be removed from the VNet configuration for allowed network traffic.
+5. We optimized performance of synthetic GraphQL APIs resolving multiple fields from the same endpoint.
+6. We fixed an issue, where using the developer portal test console configured with authorization code grant flow and OpenID Connect resulted in an error.
+7. We fixed an issue, where several properties in the "[APIs - List By Service](https://docs.microsoft.com/rest/api/apimanagement/current-ga/apis/list-by-service?tabs=HTTP)" management API response weren't propagated with values. The contract now follows the documented schema.
+8. We fixed an issue where an invalid request to create an [API Schema](https://docs.microsoft.com/rest/api/apimanagement/current-ga/api-schema/create-or-update?tabs=HTTP) could result in an `500 Internal Server Error` response. API Management now returns `400 Bad Request` in such cases.
+9. We fixed an issue, where an unsuccessful management operation on a policy fragment could result in failure of future management operations on that policy fragment.
+10. We fixed an issue, where built-in git repository export could fail.
+
+### Developer portal releases
+
+1. [2.19.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.19.0)
+2. [2.18.2](https://github.com/Azure/api-management-developer-portal/releases/tag/2.18.2)
+
+### Self-hosted gateway container image releases
+
+1. [2.1.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.4)
+
+### Self-hosted gateway Helm chart releases
+
+1. [1.4.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.4.1)
+
+### DevOps Resource Kit releases
+
+1. [1.0.0 (general availability)](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0)
+2. [1.0.0-beta.11](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.11)
+3. [1.0.0-beta.10](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.10)
+4. [1.0.0-beta.9](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.9)
+5. [1.0.0-beta.8](https://github.com/Azure/azure-api-management-devops-resource-kit/releases/tag/1.0.0-beta.8)
+
 ## Release - API Management service: July, 2022
 
 A regular Azure API Management service update was started on July 20, 2022. It may take several weeks for your API Management service to receive the update.
