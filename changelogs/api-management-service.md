@@ -10,16 +10,19 @@ A regular Azure API Management service update was started on October 31, 2022. I
 
 ### New features, fixes, and improvements
 
-1. You can now easily validate Azure Active Directory tokens on incoming requests with the new `validate-azure-ad-token` policy. [Learn more](link to docs for the new policy ).
-2. We fixed an issue, where API Management didn’t allow clients to open new WebSocket connections even though they didn’t exceed the connections limit.
+1. You can now easily validate Azure Active Directory tokens on incoming requests with the new `validate-azure-ad-token` policy. [Learn more](https://learn.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateAAD).
+2. We fixed an issue, where API Management didn't allow clients to open new WebSocket connections even though they didn't exceed the connections limit.
 3. API Management updates are now rolled out to one Availability Zone at a time. Previously, updates were rolled out to multiple Availability Zones, reducing the service capacity by up to 50%.
-
-4. You can now use caching policies(`cache-store` or `cache-lookup`) inside policy fragments.### Developer portal releases
+4. You can now use `cors` and caching policies (`cache-store` and `cache-lookup`) inside policy fragments. Previously the `cors` policy inside policy fragments didn't correctly apply CORS configuration to the API; caching policies couldn't be configured due to an error.
+5. API Management scale-out attempts that fail due to insufficient subnet capacity are now properly logged in Activity Logs.
+6. XML schema validation with `validate-content` policy no longer results in validation errors for elements with type "anyType".
+7. The execution time of the `send-one-way-request` policy is no longer included in the `backendTime` metric in the diagnostic logs, since it's an asynchronous, non-blocking operation. Previously, it was included in the `backendTime` metric but excluded from the `totalTime` metric.
 
 ### Developer portal releases
 
-1. [2.20.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.20.0)
-2. [2.19.1](https://github.com/Azure/api-management-developer-portal/releases/tag/2.19.1)
+1. [2.21.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.21.0)
+2. [2.20.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.20.0)
+3. [2.19.1](https://github.com/Azure/api-management-developer-portal/releases/tag/2.19.1)
 
 ### Self-hosted gateway container image releases
 
