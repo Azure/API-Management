@@ -1,5 +1,39 @@
 # Azure API Management service changelog
 
+## Release - API Management service: October, 2022
+
+A regular Azure API Management service update was started on October 31, 2022. It may take several weeks for your API Management service to receive the update.
+
+### Feature retirements
+
+1. [Support for Azure API Management self-hosted gateway version 0 and version 1 ends 1 October 2023](https://azure.microsoft.com/updates/support-for-azure-api-management-selfhosted-gateway-version-0-and-version-1-ends-1-october-2023/).
+
+### New features, fixes, and improvements
+
+1. You can now easily validate Azure Active Directory tokens on incoming requests with the new `validate-azure-ad-token` policy. Learn more in the [documentation](https://learn.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateAAD) or [blog post](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/introducing-a-better-way-to-integrate-azure-ad-with-api/ba-p/3671864).
+2. We fixed an issue, where API Management didn't allow clients to open new WebSocket connections even though they didn't exceed the connections limit.
+3. API Management updates are now rolled out to one Availability Zone at a time. Previously, updates were rolled out to multiple Availability Zones, reducing the service capacity by up to 50%.
+4. You can now use `cors` and caching policies (`cache-store` and `cache-lookup`) inside policy fragments. Previously the `cors` policy inside policy fragments didn't correctly apply CORS configuration to the API; caching policies couldn't be configured due to an error.
+5. API Management scale-out attempts that fail due to insufficient subnet capacity are now properly logged in Activity Logs.
+6. XML schema validation with `validate-content` policy no longer results in validation errors for elements with type "anyType".
+7. The execution time of the `send-one-way-request` policy is no longer included in the `backendTime` metric in the diagnostic logs, since it's an asynchronous, non-blocking operation. Previously, it was included in the `backendTime` metric but excluded from the `totalTime` metric.
+
+### Developer portal releases
+
+1. [2.21.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.21.0)
+2. [2.20.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.20.0)
+3. [2.19.1](https://github.com/Azure/api-management-developer-portal/releases/tag/2.19.1)
+
+### Self-hosted gateway container image releases
+
+1. [2.1.6](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.6)
+2. [2.1.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.5)
+
+### Self-hosted gateway Helm chart releases
+
+1. [1.5.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.1)
+2. [1.5.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.0)
+
 ## Release - API Management service: September, 2022
 
 A regular Azure API Management service update was started on September 7, 2022. It may take several weeks for your API Management service to receive the update.
