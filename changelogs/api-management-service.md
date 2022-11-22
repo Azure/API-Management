@@ -10,7 +10,7 @@ A regular Azure API Management service update was started on October 31, 2022. I
 
 ### New features, fixes, and improvements
 
-1. You can now easily validate Azure Active Directory tokens on incoming requests with the new `validate-azure-ad-token` policy. [Learn more](https://learn.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateAAD).
+1. You can now easily validate Azure Active Directory tokens on incoming requests with the new `validate-azure-ad-token` policy. Learn more in the [documentation](https://learn.microsoft.com/azure/api-management/api-management-access-restriction-policies#ValidateAAD) or [blog post](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/introducing-a-better-way-to-integrate-azure-ad-with-api/ba-p/3671864).
 2. We fixed an issue, where API Management didn't allow clients to open new WebSocket connections even though they didn't exceed the connections limit.
 3. API Management updates are now rolled out to one Availability Zone at a time. Previously, updates were rolled out to multiple Availability Zones, reducing the service capacity by up to 50%.
 4. You can now use `cors` and caching policies (`cache-store` and `cache-lookup`) inside policy fragments. Previously the `cors` policy inside policy fragments didn't correctly apply CORS configuration to the API; caching policies couldn't be configured due to an error.
