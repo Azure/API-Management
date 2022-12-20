@@ -2,7 +2,7 @@
 
 ## Release - API Management service: December 2022
 
-A regular Azure API Management service update was started on December 8, 2022. It may take several weeks for your API Management service to receive the update.
+A regular Azure API Management service update was started on December 8, 2022. This release will continue to roll out through January 2023.
 
 ### New features, fixes, and improvements
 
