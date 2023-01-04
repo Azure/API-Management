@@ -1,5 +1,20 @@
 # Azure API Management service changelog
 
+## Release - API Management service: December 2022
+
+A regular Azure API Management service update was started on December 8, 2022. This release will continue to roll out through January 2023.
+
+### New features, fixes, and improvements
+
+1. The `log-to-eventhub` policy now supports securing connections to Azure Event Hub with managed identity.
+2. We fixed an issue, where the GraphQL in API Management will no longer fail when an introspection query is added to the synthetic GraphQL resolver policy.
+3. We fixed an issue, where saving some policy fragments in Consumption tier services was failing.
+4. We fixed an issue, where modifying a policy using client SDKs or PowerShell was failing with a 406 Not Acceptable response. The issue was caused by the management API's failure to handle PUT requests with the wildcard (`*/*`) `Accept` header.
+
+### Developer portal releases
+
+1. [2.22.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.22.0)
+
 ## Release - API Management service: October, 2022
 
 A regular Azure API Management service update was started on October 31, 2022. It may take several weeks for your API Management service to receive the update.
