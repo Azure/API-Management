@@ -1,0 +1,18 @@
+New features, fixes, and improvements
+We fixed an issue, where the definition names in the API schema would display blank spaces.
+We fixed an issue, where the Dev portal was hiding default domain, a parameter has been added to include default domain in the hostnames.
+We fixed an issue, where the API revisions where not being properly filtered.
+We implemented a fix that will allow users to remove built-in groups, previously where able to add built-in groups but could not remove them.
+We fixed an issue, where an error was received when creating API schemas with the same namespace.
+We fixed an issue, where the new tenants created by ProvisionTenantV14 and ProvisionTenant15 left the AccountOwnerId column was left null. The procedures have been updated to contain an administrator user.
+We fixed an issue, where policies contained all named values which caused a problem for secrets. The policy failed to check if given user had access to secret.
+We fixed an issue, whereby Azure Active Directory v1 tokens could be validated, but v2 tokens could not be validated. With this release, both v1 and v2 tokens can be validated.
+Previously, validate-azure-ad-token would only validate tokens produced by the public cloud instance. With this release, tokens produced in every Azure cloud can be validated.
+Previously, the gateway would not refresh the GraphQL schema when it was updated from the Azure Portal. This situation is now fixed.
+We implemented a GraphQL. Context variable to allow access to all portions of the GraphQL context within policy expressions.
+Self-hosted gateway container image release
+2.1.7
+Self-hosted gateway Helm chart
+1.5.4
+1.5.3
+1.5.2
