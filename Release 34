@@ -1,1 +1,24 @@
+# Release -API Management service: April 2023
+A regular Azure API Management service updated was started February 9, 2023. This release concluded roll out March 31, 2023.
 
+### New features, fixes, and improvements
+
+1. We fixed an issue, where the definition names in the API schema would display blank spaces.
+2. We fixed an issue, where the developer portal was hiding default domain, a parameter has been added to include default domain in the hostnames.
+3. We fixed an issue, where the API revisions were not being properly filtered.
+4. We implemented a fix that will allow users to remove built-in groups, previously where able to add built-in groups but could not remove them.
+5. We fixed an issue, where an error was received when creating API schemas with the same namespace.
+6. We fixed an issue, where policies contained all named values which caused a problem for secrets. The policy failed to check if given user had access to secret.
+7. We fixed an issue, whereby Azure Active Directory v1 tokens could be validated, but v2 tokens could not be validated.  With this release, both v1 and v2 tokens can be validated.
+8. Previously, validate-azure-ad-token would only validate tokens produced by the public cloud instance.  With this release, tokens produced in every Azure cloud can be validated.
+9. Previously, the gateway would not refresh the GraphQL schema when it was updated from the Azure portal.  This situation is now fixed.
+10. We implemented a GraphQL context variable to allow access to all portions of the GraphQL context within policy expressions. 
+
+
+### Self-hosted gateway container image release
+1. [2.1.7](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.7)
+
+### Self-hosted gateway Helm chart
+1. [1.5.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.4)
+2. [1.5.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.3)
+3. [1.5.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.2)
