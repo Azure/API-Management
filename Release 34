@@ -3,7 +3,8 @@ A regular Azure API Management service updated was started February 9, 2023. Thi
 
 ### New features, fixes, and improvements
 
-1. We fixed an issue, where the definition names in the API schema would display blank spaces.
+1. Introduce new `context.Deployment.Gateway.*` context properties ([docs](https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions#ContextVariables))
+2. We fixed an issue, where the definition names in the API schema would display blank spaces.
 2. We fixed an issue, where the developer portal was hiding default domain, a parameter has been added to include default domain in the hostnames.
 3. We fixed an issue, where the API revisions were not being properly filtered.
 4. We implemented a fix that will allow users to remove built-in groups, previously where able to add built-in groups but could not remove them.
