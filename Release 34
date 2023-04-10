@@ -9,7 +9,7 @@ A regular Azure API Management service updated was started February 9, 2023. Thi
 4. We implemented a fix that will allow users to remove built-in groups, previously where able to add built-in groups but could not remove them.
 5. We fixed an issue, where an error was received when creating API schemas with the same namespace.
 6. We fixed an issue, where policies contained all named values which caused a problem for secrets. The policy failed to check if given user had access to secret.
-7. We fixed an issue, whereby Azure Active Directory v1 tokens could be validated, but v2 tokens could not be validated.  With this release, both v1 and v2 tokens can be validated.
+7. We fixed an issue, whereby Azure Active Directory v1 tokens could be validated with `validate-azure-ad-token` policy, but v2 tokens could not be validated.  With this release, both v1 and v2 tokens are supported.
 8. Previously, validate-azure-ad-token would only validate tokens produced by the public cloud instance.  With this release, tokens produced in every Azure cloud can be validated.
 9. Previously, the gateway would not refresh the GraphQL schema when it was updated from the Azure portal.  This situation is now fixed.
 10. We implemented a GraphQL context variable to allow access to all portions of the GraphQL context within policy expressions. 
