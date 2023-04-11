@@ -17,7 +17,7 @@ A regular Azure API Management service update was started February 9, 2023. This
 
 
 ### Self-hosted gateway container image release
-1. [2.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.2.0-preview-1)
+1. [2.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.2.0-preview-1) (Preview 1)
 2. [2.1.8](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.8)
 3. [2.1.7](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.7)
 
