@@ -1,16 +1,17 @@
 # Release - API Management service: February & March 2023
+
 A regular Azure API Management service update was started February 9, 2023. This release concluded rollout on March 31, 2023.
 
 ### New features, fixes, and improvements
 
-1. We add the new `context.Deployment.Gateway.*` object with several properties for accessing gateway information in runtime policies. [Learn more](https://learn.microsoft.com/en-us/azure/api-management/api-management-policy-expressions#ContextVariables).
+1. We added the new `context.Deployment.Gateway.*` object with several properties for accessing gateway information in runtime policies. [Learn more](https://learn.microsoft.com/azure/api-management/api-management-policy-expressions#ContextVariables).
 2. We fixed an issue, where the definition names in the API schema would display blank spaces.
 3. We fixed an issue, where the developer portal was hiding default domain, a parameter has been added to include default domain in the hostnames.
 4. We fixed an issue, where the API revisions were not being properly filtered.
 5. We fixed an issue, where adding API schemas with the same namespace resulted in an error.
 6. We fixed an issue, where policies contained all named values which caused a problem for secrets. The policy failed to check if given user had access to secret.
 7. We fixed an issue, whereby Azure Active Directory v1 tokens could be validated with `validate-azure-ad-token` policy, but v2 tokens could not be validated. With this release, both v1 and v2 tokens are supported.
-8. Previously, validate-azure-ad-token would only validate tokens against produced by the public cloud instance of Azure Active Directory (AD). With this release, token validation is supported in every Azure cloud where Azure Active Directory is available.
+8. Previously, `validate-azure-ad-token` would only validate tokens against produced by the public cloud instance of Azure Active Directory (AD). With this release, token validation is supported in every Azure cloud where Azure Active Directory is available.
 9. Previously, the gateway would not refresh the GraphQL schema when it was updated from the Azure portal. The gateway now correctly refreshes the GraphQL schema after it's updated in the Azure portal.
 10. We implemented a GraphQL context variable to allow access to all portions of the GraphQL context within policy expressions. 
 
@@ -18,7 +19,6 @@ A regular Azure API Management service update was started February 9, 2023. This
 1. [2.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.2.0-preview-1) (Preview 1)
 2. [2.1.8](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.8)
 3. [2.1.7](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.1.7)
-
 ### Self-hosted gateway Helm chart
 1. [1.5.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.5)
 2. [1.5.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.4)
