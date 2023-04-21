@@ -1,5 +1,19 @@
 # Azure API Management service changelog
 
+## Release - API Management service: April 2023
+
+A regular Azure API Management service update was started on . This release will continue to rollout through May 2023.
+
+### New features, fixes, and improvement
+
+1. The Azure AD authentication in Configuration API v2 has been updated.
+2. The custom hostname in Configuration API v2 has been updated.
+3. The Configuration API v1 has been disabled.
+4. We fixed an issue, where the `fix(smapi): Back fill AccountOwner_Id` in dedicated sku that targetsresolving customers potentially could not change organization or email in the email notifications.
+
+### Developer portal releases
+
+1. [2.23.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.23.0)
 ## Release - API Management service: February & March 2023
 
 A regular Azure API Management service update was started February 9, 2023. This release concluded rollout on March 31, 2023.
