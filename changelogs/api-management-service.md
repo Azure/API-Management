@@ -4,7 +4,7 @@
 
 A regular Azure API Management service update was started on . This release will continue to rollout through May 2023.
 
-### New features, fixes, and improvement
+### New features, fixes, and improvements
 
 1. The Azure AD authentication in Configuration API v2 has been updated.
 2. The custom hostname in Configuration API v2 has been updated.
