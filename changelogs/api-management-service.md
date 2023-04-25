@@ -6,10 +6,7 @@ A regular Azure API Management service update was started on . This release will
 
 ### New features, fixes, and improvement
 
-1. The Azure AD authentication in Configuration API v2 has been updated.
-2. The custom hostname in Configuration API v2 has been updated.
-3. The Configuration API v1 has been disabled.
-4. We fixed an issue, where the `fix(smapi): Back fill AccountOwner_Id` in dedicated sku that targetsresolving customers potentially could not change organization or email in the email notifications.
+1. We fixed an issue, where the `fix(smapi): Back fill AccountOwner_Id` in dedicated sku that targetsresolving customers potentially could not change organization or email in the email notifications.
 
 ### Developer portal releases
 
