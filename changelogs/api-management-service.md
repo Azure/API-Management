@@ -2,7 +2,7 @@
 
 ## Release - API Management service: April 2023
 
-## Highlights
+### Highlights
 
 1. [Workspaces for Azure API Management is now in public preview.](https://azure.microsoft.com/updates/public-preview-workspaces-in-azure-api-management/)
 2. [Incoming traffic to Azure API Management's gateway can be secured to clients running in a virtual network through Azure Private Link.](https://azure.microsoft.com/updates/generally-available-azure-private-link-support-in-azure-api-management/)
