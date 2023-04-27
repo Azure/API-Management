@@ -2,15 +2,21 @@
 
 ## Release - API Management service: April 2023
 
-A regular Azure API Management service update was started on . This release will continue to rollout through May 2023.
+## Highlights
+
+1. [Workspaces for Azure API Management is now in public preview.](https://azure.microsoft.com/updates/public-preview-workspaces-in-azure-api-management/)
+2. [Incoming traffic to Azure API Management's gateway can be secured to clients running in a virtual network through Azure Private Link.](https://azure.microsoft.com/updates/generally-available-azure-private-link-support-in-azure-api-management/)
+3. [Microsoft bolsters cloud-native security in Defender for Cloud with new API security capabilities](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/microsoft-bolsters-cloud-native-security-in-defender-for-cloud/ba-p/3801818)
+4. [Microsoft bolsters cloud-native security in Defender for Cloud with new API security capabilities.](https://aka.ms/DfAPIlaunch)
 
 ### New features, fixes, and improvements
 
-1. We fixed an issue, where the `fix(smapi): Back fill AccountOwner_Id` in dedicated sku that targetsresolving customers potentially could not change organization or email in the email notifications.
+1. We fixed an issue, where the customers potentially could not change organization or email in the email notifications.
 
 ### Developer portal releases
 
 1. [2.23.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.23.0)
+
 ## Release - API Management service: February & March 2023
 
 A regular Azure API Management service update was started February 9, 2023. This release concluded rollout on March 31, 2023.
