@@ -23,6 +23,7 @@
 1. [2.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.2.0)
 
 ### Self-hosted gateway Helm chart releases
+
 1. [1.6.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.6.0)
 
 ## Release - API Management service: February & March 2023
@@ -51,8 +52,6 @@ A regular Azure API Management service update was started February 9, 2023. This
 2. [1.5.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.4)
 3. [1.5.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.3)
 4. [1.5.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.2)
-
-
 
 ## Release - API Management service: December 2022
 
