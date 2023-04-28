@@ -2,15 +2,30 @@
 
 ## Release - API Management service: April 2023
 
-A regular Azure API Management service update was started on . This release will continue to rollout through May 2023.
+### Highlights
 
-### New features, fixes, and improvement
+1. [Azure API Management and Microsoft Defender for APIs integration is now in preview](https://azure.microsoft.com/updates/public-preview-azure-api-management-and-microsoft-defender-for-apis-integration/). [Learn how Microsoft bolsters cloud-native security in Defender for Cloud with new API security capabilities](https://aka.ms/DfAPIlaunch).
+2. [Workspaces in Azure API Management are now in preview](https://azure.microsoft.com/updates/public-preview-workspaces-in-azure-api-management/).
+3. [Synthetic GraphQL is now generally available](https://azure.microsoft.com/updates/generally-available-synthetic-graphql-2/).
+4. [Authorizations in Azure API Management are now generally available](https://azure.microsoft.com/updates/generally-available-api-management-authorizations/).
+5. [Incoming traffic to Azure API Management's gateway can be secured to clients running in a virtual network through Azure Private Link](https://azure.microsoft.com/updates/generally-available-azure-private-link-support-in-azure-api-management/).
 
-1. We fixed an issue, where the `fix(smapi): Back fill AccountOwner_Id` in dedicated sku that targetsresolving customers potentially could not change organization or email in the email notifications.
+### New features, fixes, and improvements
+
+1. We fixed an issue, where the customers potentially could not change organization or email in the email notifications.
 
 ### Developer portal releases
 
 1. [2.23.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.23.0)
+
+### Self-hosted gateway container image releases
+
+1. [2.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.2.0)
+
+### Self-hosted gateway Helm chart releases
+
+1. [1.6.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.6.0)
+
 ## Release - API Management service: February & March 2023
 
 A regular Azure API Management service update was started February 9, 2023. This release concluded rollout on March 31, 2023.
@@ -37,8 +52,6 @@ A regular Azure API Management service update was started February 9, 2023. This
 2. [1.5.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.4)
 3. [1.5.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.3)
 4. [1.5.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.5.2)
-
-
 
 ## Release - API Management service: December 2022
 
