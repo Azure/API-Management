@@ -4,9 +4,11 @@
 
 ### Highlights
 
-1. [Workspaces for Azure API Management are now in public preview.](https://azure.microsoft.com/updates/public-preview-workspaces-in-azure-api-management/)
-2. [Incoming traffic to Azure API Management's gateway can be secured to clients running in a virtual network through Azure Private Link.](https://azure.microsoft.com/updates/generally-available-azure-private-link-support-in-azure-api-management/)
-3. [Azure API Management and Microsoft Defender for APIs integration is now in preview](https://azure.microsoft.com/updates/public-preview-azure-api-management-and-microsoft-defender-for-apis-integration/). [Learn how Microsoft bolsters cloud-native security in Defender for Cloud with new API security capabilities](https://aka.ms/DfAPIlaunch).
+1. [Azure API Management and Microsoft Defender for APIs integration is now in preview](https://azure.microsoft.com/updates/public-preview-azure-api-management-and-microsoft-defender-for-apis-integration/). [Learn how Microsoft bolsters cloud-native security in Defender for Cloud with new API security capabilities](https://aka.ms/DfAPIlaunch).
+2. [Workspaces in Azure API Management are now in preview](https://azure.microsoft.com/updates/public-preview-workspaces-in-azure-api-management/).
+3. [Synthetic GraphQL is now generally available](https://azure.microsoft.com/updates/generally-available-synthetic-graphql-2/).
+4. [Authorizations in Azure API Management are now generally available](https://azure.microsoft.com/updates/generally-available-api-management-authorizations/).
+5. [Incoming traffic to Azure API Management's gateway can be secured to clients running in a virtual network through Azure Private Link](https://azure.microsoft.com/updates/generally-available-azure-private-link-support-in-azure-api-management/).
 
 ### New features, fixes, and improvements
 
@@ -17,11 +19,11 @@
 1. [2.23.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.23.0)
 
 ### Self-hosted gateway container image releases
+
 1. [2.2.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.2.0)
 
 ### Self-hosted gateway Helm chart releases
 1. [1.6.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.6.0)
-
 
 ## Release - API Management service: February & March 2023
 
