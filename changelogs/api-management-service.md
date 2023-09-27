@@ -1,5 +1,38 @@
 # Azure API Management service changelog
 
+## Release - API Management service: September 2023
+
+### New features, fixes, and improvements
+
+1. We have introduced new Azure Advisor recommendations
+- Use Azure AD authentication instead of gateway token for Configuration API
+- Identity self-hosted gateways using gateway tokens that will expire in < 7 days
+- Identity validate-jwt policy usage with insecure key size
+2. We have fixed an issue where the OpenApi would fail if the parameter names where empty.
+3. We have fixed an issue where nested objects were being overridden when import OpenApi was used.
+4. We have fixed an issue where the FixOpenApi parameter schema can now import complex schemas.
+5. We have fixed a bug where validate-azure-token policy was not properly using expressions to resolve tenant-id.
+5. Deleting API release will now return 204 instead of 404 if release does not exist.
+6. Removing support for the [retired set-graphql-resolver policy] (<https://learn.microsoft.com/en-us/azure/api-management/set-graphql-resolver-policy>) which had already been replaced with GraphQL API resolvers.
+7. We have fixed an issue where the Deletion of API was not removing all of the releases. When deleting an API it will now delete all of its releases.
+8. We have fixed an issue where the DELETE operation for API endpoint was synchronous and timing out. The DELETE operation has been made asynchronous to fix this issue.
+
+### Self-hosted gateway container image releases
+
+1. [2.3.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.4)
+2. [2.3.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.3)
+3. [2.3.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.2)
+4. [2.3.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.1)
+5. [2.3.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.0)
+
+### Self-hosted gateway Helm chart releases
+
+1. [1.7.4](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.4)
+2. [1.7.3](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.3)
+3. [1.7.2](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.2)
+4. [1.7.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.1)
+5. [1.7.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.0)
+
 ## Release - API Management service: April 2023
 
 ### Highlights
