@@ -13,7 +13,7 @@
 4. We have fixed an issue where the FixOpenApi parameter schema can now import complex schemas.
 5. We have fixed a bug where validate-azure-token policy was not properly using expressions to resolve tenant-id.
 6. Deleting API release will now return 204 instead of 404 if release does not exist.
-7. Removing support for the [retired set-graphql-resolver policy] (<https://learn.microsoft.com/en-us/azure/api-management/set-graphql-resolver-policy>) which had already been replaced with GraphQL API resolvers.
+7. Removing support for the [retired set-graphql-resolver policy](https://learn.microsoft.com/en-us/azure/api-management/set-graphql-resolver-policy) which had already been replaced with GraphQL API resolvers.
 8. We have fixed an issue where the Deletion of API was not removing all of the releases. When deleting an API it will now delete all of its releases.
 9. We have fixed an issue where the DELETE operation for API endpoint was synchronous and timing out. The DELETE operation has been made asynchronous to fix this issue.
 
