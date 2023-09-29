@@ -5,14 +5,12 @@
 ### New features, fixes, and improvements
 
 1. We have introduced new Azure Advisor recommendations:
-
     - Use Azure AD authentication instead of gateway token for Configuration API
     - Identity self-hosted gateways using gateway tokens that will expire in < 7 days
     - Identity validate-jwt policy usage with insecure key size   
-2. We have removed support for the [retired set-graphql-resolver policy](https://learn.microsoft.com/en-us/azure/api-management/set-graphql-resolver-policy) which had already been replaced with GraphQL API 
-resolvers.
+2. We have removed support for the [retired set-graphql-resolver policy](https://learn.microsoft.com/en-us/azure/api-management/set-graphql-resolver-policy) which had already been replaced with GraphQL API resolvers.
 3. We have fixed an issue where the OpenAPI would fail if the parameter names where empty.
-4. We have fixed an issue where nested objects were being overridden when import OpenApi was used.
+4. We have fixed an issue where nested objects were being overridden when import OpenAPI was used.
 5. We have fixed an issue where the FixOpenApi parameter schema can now import complex schemas.
 6. We have fixed a bug where validate-azure-token policy was not properly using expressions to resolve tenant-id.
 7. We have fixed an issue where deleting the API release will now return 204 instead of 404 if release does not exist.
