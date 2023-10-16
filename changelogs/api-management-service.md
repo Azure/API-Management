@@ -4,15 +4,15 @@
 
 ### Highlights
 
-1. We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2. ([Docs](https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview))
+-We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2. ([Docs](https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview))
 
 ### New features, fixes and improvements
 
-1. We have added a feature flag for exporting API securitywhen exporting customer API to swagger.
+-Minor bug fixed and improvements.
 
 ### Developer portal releases
 
-No releases.
+-No releases.
 
 ### Self-hosted gateway container image releases
 
