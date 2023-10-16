@@ -1,5 +1,27 @@
 # Azure API Management service changelog
 
+# Release - API Management service: October 2023
+
+### Highlights
+
+1. We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2. ([Docs](https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview))
+
+### New features, fixes and improvements
+
+1. We have added a feature flag for exporting API securitywhen exporting customer API to swagger.
+
+### Developer portal releases
+
+No releases.
+
+### Self-hosted gateway container image releases
+
+1. [2.3.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.5)
+
+### Self-hosted gateway Helm chart releases
+
+1.[1.7.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.5)
+
 ## Release - API Management service: September 2023
 
 ### New features, fixes, and improvements
