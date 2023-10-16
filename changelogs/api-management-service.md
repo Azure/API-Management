@@ -10,6 +10,10 @@
 
 1. We have added a feature flag for exporting API securitywhen exporting customer API to swagger.
 
+### Developer portal releases
+
+No releases.
+
 ### Self-hosted gateway container image releases
 
 1. [2.3.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.5)
