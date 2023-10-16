@@ -1,26 +1,5 @@
 # Azure API Management service changelog
 
-# Release -API Management service: October 2023
-
-### Highlights
-
-1. We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2.(https://learn.microsoft.com/en-us/azure/api-management/v2-service-tiers-overview)
-
-### New features, fixes and improvements
-
-1. We have added a feature flag for exporting API securitywhen exporting customer API to swagger.
-   
-
-### Self-hosted gateway container image releases
-
-1. [2.3.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.5)
-
-### Self-hosted gateway Helm chart releases
-
-1.[1.7.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.5)
-
-
-
 ## Release - API Management service: September 2023
 
 ### New features, fixes, and improvements
@@ -33,7 +12,7 @@
 3. We have fixed an issue where nested objects were being overridden when import OpenApi was used.
 4. We have fixed an issue where the FixOpenApi parameter schema can now import complex schemas.
 5. We have fixed a bug where validate-azure-token policy was not properly using expressions to resolve tenant-id.
-6. Deleting API release will now return 204 instead of 404 if release does not exist.
+7. We have fixed an issue where deleting the API release will now return 204 instead of 404 if release does not exist.
 7. Removing support for the [retired set-graphql-resolver policy](https://learn.microsoft.com/en-us/azure/api-management/set-graphql-resolver-policy) which had already been replaced with GraphQL API resolvers.
 8. We have fixed an issue where the Deletion of API was not removing all of the releases. When deleting an API it will now delete all of its releases.
 9. We have fixed an issue where the DELETE operation for API endpoint was synchronous and timing out. The DELETE operation has been made asynchronous to fix this issue.
