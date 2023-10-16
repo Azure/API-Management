@@ -4,7 +4,7 @@
 
 ### Highlights
 
-1. We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2.(https://learn.microsoft.com/en-us/azure/api-management/v2-service-tiers-overview)
+1. We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2.(https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview)
 
 ### New features, fixes and improvements
 
