@@ -1,30 +1,27 @@
 ### Highlights
-
-- We're thrilled to announce the public preview launch of our latest Azure API Management pricing tiers: Basic v2 and Standard v2. ([Docs](https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview))
-- API Management is now Generally Available in 2 new Azure Regions: Israel Central, Italy North.
-
-
+ 
+- We're excited to announce availability of the Public Preview of our latest Azure API Management pricing tiers: [Basic v2 and Standard v2](https://learn.microsoft.com/azure/api-management/v2-service-tiers-overview).
+- API Management is now Generally Available in the Israel Central and Italy North Azure regions.
+ 
 ### New features, fixes and improvements
-
-- There is now support for timeout-ms in forward-request policy (subsecond timeout).
-- The use of Bearer and other authorization schemas for custom header in validate-jwt policy is now allowed.
-- Developer Portal UI is now calling DataAPI endpoints instead of SMAPI management endpoints for managed only.
-- We fixed an issue where the large Azure Monitor request entry blocks Azure monitor log stream.
-- We fixed and issue where the emit-metric policy can fail request when no diagnostics are configured at any scope.
-- We fixed an issue where the request to grapqhl api with empty graphql resolver policy fails request.
-- We fixed an issue in the test console that was not switching APIs appropriately.
-- We fixed an issue where the headers were not displaying the correct information when sending request from the test console.
-- We fixed an issue with publisher where there was not enough memory to create a snapshot. The default application pool memory recycle limit setting has been adjusted.
-
-
+ 
+- You can now specify timeout in milliseconds in the the `forward-request` policy via the new `timeout-ms` attribute.
+- We changed `validate-jwt` policy to properly handle `Bearer` and other authorization token schemas correctly in custom headers.
+- We fixed an issue where a large request log entry blocked Azure monitor log stream.
+- We fixed an issue where the `emit-metric` policy could fail the request when no diagnostic entries are configured at any of the scopes.
+- We fixed an issue where a request to a GraphQL API with empty GraphQL resolver policy fails the request.
+- We fixed a few bugs in the developer portal test console.
+- We fixed an issue in the publisher component of the developer portal which caused it to fail when there was not enough memory for creating a snapshot.
+ 
 ### Developer portal releases
-
+ 
 - No releases.
-
+ 
 ### Self-hosted gateway container image releases
-
+ 
 - [2.3.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.5)
-
+ 
 ### Self-hosted gateway Helm chart releases
-
+ 
 - [1.7.5](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.5)
+ 
