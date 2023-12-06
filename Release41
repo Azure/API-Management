@@ -1,27 +1,18 @@
-## Release - API Management service: November, 2023
+## Release - API Management service: December 2023
 
-### New features, improvements, and changes
- 
-- We will now provide specifics about token validation failures in `validate-azure-ad-token` policy in API Inspector.
-- We made the password policy stronger for users creating accounts on the developer portal - e.g., it now requires using a special character. Complete password requirements will be shown on the sign-up page.
-- Users now must provide their current password before changing it on the developer portal.
-- Pagination controls on the developer portal now feature only the Next and Previous buttons.
- 
 ### Fixes
- 
-- We fixed an issue that caused tokens of logged-out developer portal users signed in via Azure AD B2C to remain valid under some circumstances.
-- We fixed a regression that caused POST requests issued from the try it console on the developer portal not to work correctly.
-- We fixed an issue in the Content Access Control feature of the developer portal that allowed unauthorized access to pages via direct link.
- 
+
+- We fixed an issue with `DevPortalHost` property not being passed correctly into the email notification template.
+
 ### Developer portal releases
- 
+
  - No releases.
- 
+
 ### Self-hosted gateway container image releases
- 
+
  - [2.4.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.4.0)
  - [2.3.6](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.6)
- 
+
 ### Self-hosted gateway Helm chart releases
 
 - [1.8.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.8.0)
