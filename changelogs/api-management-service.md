@@ -1,5 +1,31 @@
 # Azure API Management service changelog
 
+## Release - API Management service: December, 2023
+
+### New features, improvements, and changes
+
+- We reserved`default`[Workspace](https://learn.microsoft.com/azure/api-management/workspaces-overview) name for internal use. After the update, users will not be able to create Workspaces with that name.
+
+### Fixes
+
+- We fixed an issue causing degraded performance when creating new service instance.
+- We fixed an issue with `DevPortalHost` property not being passed correctly into the email notification template.
+- We eliminated inconsistency in [Security Scheme](https://spec.openapis.org/oas/v3.1.0#security-scheme-object) and [Security Requirement](https://spec.openapis.org/oas/v3.1.0#security-requirement-object) objects in OpenAPI exports when performed by authenticated vs. anonymous users.
+
+### Developer portal releases
+
+- No releases.
+
+### Self-hosted gateway container image releases
+
+- [2.4.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.4.0)
+- [2.3.6](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.6)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.8.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.8.0)
+- [1.7.6.](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.6)
+
 ## Release - API Management service: November, 2023
 
 ### New features, improvements, and changes
