@@ -14,7 +14,7 @@
 - Self-hosted gateway using [EntraID authentication](https://learn.microsoft.com/azure/api-management/self-hosted-gateway-enable-azure-ad) to connect to the associated Azure API Management service instance are now showing heartbeats in the Azure Portal.
 - We fixed the issue preventing “Scheduled Maintenance” events from being shown in the Activity log.
 - The `set-body` policies contained within GraphQL resolver policies (see [example](https://learn.microsoft.com/azure/api-management/http-data-source-policy#example-policy-1)) is now executed for streamed responses.
-- The issue that caused GraphQL requests to fail when response headers were concurrently accessed from multiple resolver policies is now resolved.
+- The issue making resolver get incorrect values from the cache for some GraphQL requests is now fixed.
 - Requests resulting in a log entry larger than 32KB, previously not logged at all, are now logged to Azure Monitor after trimming.
 
 ### Developer portal releases
