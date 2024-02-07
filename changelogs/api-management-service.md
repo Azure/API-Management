@@ -1,5 +1,34 @@
 # Azure API Management service changelog
 
+## Release - API Management service: February 2024
+
+### New features, improvements, and changes
+
+- [TLS 1.3 and related cipher suites are now supported](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcing-the-availability-of-tls-1-3-in-azure-api-management/ba-p/4047586).
+- The `validate-jwt` [policy](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) now works with tokens signed PS256 signature algorithm.
+- We raised the content size limit in the `validate-content` [policy](https://learn.microsoft.com/azure/api-management/validate-content-policy) to 4MB.
+- A current API revision can now be addressed using a [revision-specific URL](https://learn.microsoft.com/azure/api-management/api-management-revisions#accessing-specific-revisions) in addition to the API's base URL.
+
+### Fixes
+
+- Self-hosted gateway using [EntraID authentication](https://learn.microsoft.com/azure/api-management/self-hosted-gateway-enable-azure-ad) to connect to the associated Azure API Management service instance are now showing heartbeats in the Azure Portal.
+- We fixed the issue preventing “Scheduled Maintenance” events from being shown in the Activity log.
+- The `set-body` policies contained within GraphQL resolver policies (see [example](https://learn.microsoft.com/azure/api-management/http-data-source-policy#example-policy-1)) is now executed for streamed responses.
+- The issue making resolver get incorrect values from the cache for some GraphQL requests is now fixed.
+- Requests resulting in a log entry larger than 32KB, previously not logged at all, are now logged to Azure Monitor after trimming.
+
+### Developer portal releases
+
+- No releases.
+
+### Self-hosted gateway container image releases
+
+•	[2.5.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.5.0)
+
+### Self-hosted gateway Helm chart releases
+
+•	[1.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.9.0)
+
 ## Release - API Management service: December, 2023
 
 ### New features, improvements, and changes
