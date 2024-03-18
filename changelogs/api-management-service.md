@@ -1,5 +1,49 @@
 # Azure API Management service changelog
 
+## Release - API Management service: March 2024
+
+###  ‼️ Breaking changes ‼️
+- On June 14, 2024, we’re introducing [breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-june-2024) to the Workspaces feature. You may have to take action to continue using workspaces beyond June 14, 2024.
+
+### New features, improvements, and changes
+- We’ve introduced several new features and improvements to workspaces:
+    - You can now create and manage certificates, backends, diagnostics, and loggers inside a workspace with the `2023-09-01-preview` management API version.Azure portal interface will be released soon.
+    - You can now use `context.Workspace` in policy expressions.
+    - "default-workspace" is now a reserved workspace resource name.
+    - We now preserve the `format` and `schema` properties of the form-data parameters when import importing OpenAPI APIs.
+- HTTP version information will now be included in the [request trace](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector).
+- We’ve added support for HS512 and RS512 algorithms in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy#usage-notes) policy.
+- `client-application-ids` element is now optional in [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy.
+- We've made a couple improvements to GraphQL support:
+    - We've added support for [Union Type](https://spec.graphql.org/October2021/#sec-Unions) in GraphQL [resolvers](https://learn.microsoft.com/azure/api-management/http-data-source-policy#resolver-for-a-graqhql-query-that-returns-a-list-using-a-liquid-template)
+    - Arrays can now be used within the [`set-body`](https://learn.microsoft.com/azure/api-management/set-body-policy) policy to project the [data obtained by a resolver](https://learn.microsoft.com/azure/api-management/http-data-source-policy) onto the list of primitive data types specified in the GraphQL schema
+- An [Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-overview) notification will be sent to customers when they inadvertantly delete the [FQDN](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#dns-name-label) property from the Public IP resource assigned to API Management.
+- We've made several improvements to the [VNet integration](https://learn.microsoft.com/azure/api-management/integrate-vnet-outbound) in the Standard v2 tier:
+    - We will now detect if the prerequisites for VNet integration are not being met - i.e., [subnet delegation and service association link](https://learn.microsoft.com/azure/api-management/integrate-vnet-outbound#prerequisites), and fail the deployment faster.
+    - All traffic from the VNet-integrated Standard v2 service instances to the Internet will be now routed via the integrated VNet.
+    - The outbound IP will now be populated and shows its respective value.
+
+### Fixes
+- We’ve resolved the issue where Azure API Management would incorrectly log requests that were rejected due to public network access is disabled. This fix ensures that logs and metrics in Azure Monitor now exclude these rejected requests when API Management is [set up with a private endpoint](https://learn.microsoft.com/azure/api-management/private-endpoint).
+- An attempt to create diagnostics in a workspace that doesn't exist will now return a "404 Not Found" error. Previously, API Management returned a "500 Internal Server Error" response.
+- Workspace users can no longer override diagnostics settings defined for all APIs on the service level.
+- Exporting APIs with empty or whitespace-only examples no longer produces an error.
+- Optional string query parameters are no longer added to the API operation's URL template.
+-`$DevPortalUrl` variable in the developer welcome email template now returns a new developer portal URL. Previously, it returned a legacy developer portal URL.
+- The [`authenticate-certificate`](https://learn.microsoft.com/azure/api-management/authentication-certificate-policy) policy now performs a case-sensitive certificate ID validation. Previously, request processing would fail when the casing between the certificate ID in the policy and in the request didn’t match.
+- We've fixed an issue preventing recovery of the [soft-deleted](https://learn.microsoft.com/azure/api-management/soft-delete#recover-a-soft-deleted-instance) Basic v2 and Standard v2 service instances.
+
+### Self-hosted developer portal releases
+- [2.26.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.26.0)
+
+### Self-hosted gateway container image releases
+
+- [2.5.0] (Release Container Image - v2.5.0 · Azure/api-management-self-hosted-gateway · GitHub)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.9.0]( Release Helm Chart - v1.9.0 · Azure/api-management-self-hosted-gateway · GitHub)
+
 ## Release - API Management service: February 2024
 
 ### New features, improvements, and changes
