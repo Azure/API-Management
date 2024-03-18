@@ -42,11 +42,11 @@
 
 ### Self-hosted gateway container image releases
 
-- [2.5.0](Release Container Image - v2.5.0 · Azure/api-management-self-hosted-gateway · GitHub)
+- [2.5.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.5.0)
 
 ### Self-hosted gateway Helm chart releases
 
-- [1.9.0](Release Helm Chart - v1.9.0 · Azure/api-management-self-hosted-gateway · GitHub)
+- [1.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.9.0)
 
 ## Release - API Management service: February 2024
 
