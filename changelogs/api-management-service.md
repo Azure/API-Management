@@ -1,5 +1,137 @@
 # Azure API Management service changelog
 
+## Release - API Management service: March 2024
+
+###  ‼️ Breaking changes ‼️
+
+- On June 14, 2024, we’re introducing [breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-june-2024) to the Workspaces feature. You may have to take action to continue using workspaces beyond June 14, 2024.
+
+### New features, improvements, and changes
+
+- We’ve introduced several new features and improvements to workspaces:
+    - You can now create and manage certificates, backends, diagnostics, and loggers inside a workspace with the `2023-09-01-preview` management API version.Azure portal interface will be released soon.
+    - You can now use `context.Workspace` in policy expressions.
+    - "default-workspace" is now a reserved workspace resource name.
+- We now preserve the `format` and `schema` properties of the form-data parameters when importing OpenAPI APIs.
+- HTTP version information will now be included in the [request trace](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector).
+- We’ve added support for HS512 and RS512 algorithms in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy#usage-notes) policy.
+- `client-application-ids` element is now optional in [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy.
+- We've made a couple improvements to the GraphQL support:
+    - We've added support for [Union Type](https://spec.graphql.org/October2021/#sec-Unions) in GraphQL [resolvers](https://learn.microsoft.com/azure/api-management/http-data-source-policy#resolver-for-a-graqhql-query-that-returns-a-list-using-a-liquid-template)
+    - Arrays can now be used within the [`set-body`](https://learn.microsoft.com/azure/api-management/set-body-policy) policy to project the [data obtained by a resolver](https://learn.microsoft.com/azure/api-management/http-data-source-policy) onto the list of primitive data types specified in the GraphQL schema
+- An [Azure Advisor](https://learn.microsoft.com/azure/advisor/advisor-overview) notification will be sent to customers when they inadvertantly delete the [FQDN](https://learn.microsoft.com/azure/virtual-network/ip-services/public-ip-addresses#dns-name-label) property from the public IP resource assigned to API Management.
+- We've made several improvements to the [VNet integration](https://learn.microsoft.com/azure/api-management/integrate-vnet-outbound) in the Standard v2 tier:
+    - We will now detect if the prerequisites for VNet integration are not being met - i.e., [subnet delegation and service association link](https://learn.microsoft.com/azure/api-management/integrate-vnet-outbound#prerequisites), and fail the deployment faster.
+    - All traffic from the VNet-integrated Standard v2 service instances to the Internet will be now routed via the integrated VNet.
+    - The outbound IP will now be populated and shows its respective value.
+
+### Fixes
+
+- We’ve resolved the issue where Azure API Management would incorrectly log requests that were rejected due to public network access is disabled. This fix ensures that logs and metrics in Azure Monitor now exclude these rejected requests when API Management is [set up with a private endpoint](https://learn.microsoft.com/azure/api-management/private-endpoint).
+- An attempt to create diagnostics in a workspace that doesn't exist will now return a `404 Not Found` error. Previously, API Management returned a `500 Internal Server Error` response.
+- Workspace users can no longer override diagnostics settings defined for all APIs on the service level.
+- Exporting APIs with empty or whitespace-only examples no longer produces an error.
+- Optional string query parameters are no longer added to the API operation's URL template.
+-`$DevPortalUrl` variable in the developer welcome email template now returns a new developer portal URL. Previously, it returned a legacy developer portal URL.
+- The [`authenticate-certificate`](https://learn.microsoft.com/azure/api-management/authentication-certificate-policy) policy now performs a case-insensitive certificate ID validation. Previously, request processing would fail when the casing between the certificate ID in the policy and in the request didn’t match.
+- We've fixed an issue preventing recovery of the [soft-deleted](https://learn.microsoft.com/azure/api-management/soft-delete#recover-a-soft-deleted-instance) Basic v2 and Standard v2 service instances.
+
+### Self-hosted developer portal releases
+
+- [2.26.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.26.0)
+
+### Self-hosted gateway container image releases
+
+- [2.5.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.5.0)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.9.0)
+
+## Release - API Management service: February 2024
+
+### New features, improvements, and changes
+
+- [TLS 1.3 and related cipher suites are now supported](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/announcing-the-availability-of-tls-1-3-in-azure-api-management/ba-p/4047586).
+- The `validate-jwt` [policy](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) now works with tokens signed PS256 signature algorithm.
+- We raised the content size limit in the `validate-content` [policy](https://learn.microsoft.com/azure/api-management/validate-content-policy) to 4MB.
+- A current API revision can now be addressed using a [revision-specific URL](https://learn.microsoft.com/azure/api-management/api-management-revisions#accessing-specific-revisions) in addition to the API's base URL.
+
+### Fixes
+
+- Self-hosted gateway using [EntraID authentication](https://learn.microsoft.com/azure/api-management/self-hosted-gateway-enable-azure-ad) to connect to the associated Azure API Management service instance are now showing heartbeats in the Azure Portal.
+- We fixed the issue preventing “Scheduled Maintenance” events from being shown in the Activity log.
+- The `set-body` policies contained within GraphQL resolver policies (see [example](https://learn.microsoft.com/azure/api-management/http-data-source-policy#example-policy-1)) is now executed for streamed responses.
+- The issue making resolver get incorrect values from the cache for some GraphQL requests is now fixed.
+- Requests resulting in a log entry larger than 32KB, previously not logged at all, are now logged to Azure Monitor after trimming.
+
+### Developer portal releases
+
+- No releases.
+
+### Self-hosted gateway container image releases
+
+•	[2.5.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.5.0)
+
+### Self-hosted gateway Helm chart releases
+
+•	[1.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.9.0)
+
+## Release - API Management service: December, 2023
+
+### New features, improvements, and changes
+
+- We reserved`default`[Workspace](https://learn.microsoft.com/azure/api-management/workspaces-overview) name for internal use. After the update, users will not be able to create Workspaces with that name.
+
+### Fixes
+
+- We fixed an issue causing degraded performance when creating new service instance.
+- We fixed an issue with `DevPortalHost` property not being passed correctly into the email notification template.
+- We eliminated inconsistency in [Security Scheme](https://spec.openapis.org/oas/v3.1.0#security-scheme-object) and [Security Requirement](https://spec.openapis.org/oas/v3.1.0#security-requirement-object) objects in OpenAPI exports when performed by authenticated vs. anonymous users.
+
+### Developer portal releases
+
+- No releases.
+
+### Self-hosted gateway container image releases
+
+- [2.4.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.4.0)
+- [2.3.6](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.6)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.8.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.8.0)
+- [1.7.6.](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.6)
+
+## Release - API Management service: November, 2023
+
+### New features, improvements, and changes
+ 
+- We will now provide specifics about token validation failures in `validate-azure-ad-token` policy in API Inspector.
+- We made the password policy stronger for users creating accounts on the developer portal - e.g., it now requires using a special character. Complete password requirements will be shown on the sign-up page.
+- Users now must provide their current password before changing it on the developer portal.
+- Pagination controls on the developer portal now feature only the Next and Previous buttons.
+ 
+### Fixes
+ 
+- We fixed an issue that caused tokens of logged-out developer portal users signed in via Azure AD B2C to remain valid under some circumstances.
+- We fixed a regression that caused POST requests issued from the try it console on the developer portal not to work correctly.
+- We fixed an issue in the Content Access Control feature of the developer portal that allowed unauthorized access to pages via direct link.
+ 
+### Developer portal releases
+ 
+ - No releases.
+ 
+### Self-hosted gateway container image releases
+ 
+ - [2.4.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.4.0)
+ - [2.3.6](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.3.6)
+ 
+### Self-hosted gateway Helm chart releases
+
+- [1.8.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.8.0)
+- [1.7.6.](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.7.6)
+
 # Release - API Management service: October 2023
 
 ### Highlights
