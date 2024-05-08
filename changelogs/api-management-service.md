@@ -1,5 +1,31 @@
 # Azure API Management service changelog
 
+## Release - API Management service: May, 2024
+
+### New features, improvements, and changes
+
+- We added support for [Interface](https://spec.graphql.org/October2021/#sec-Interfaces) type to [GraphQL resolvers](https://learn.microsoft.com/azure/api-management/http-data-source-policy#resolver-for-a-graqhql-query-that-returns-a-list-using-a-liquid-template).
+- Customer-managed public IP is no longer required when [deploying a service instance into a virtual network](https://learn.microsoft.com/en-us/azure/api-management/api-management-using-with-internal-vnet?tabs=stv2). Changing the subnet will remove public IP from a previously deployed service instance.
+
+### Fixes
+
+- We now correctly import schemas from OpenAPI 3.1 specifications.
+- API imports will no longer fail because of OData specification warnings. However, errors will still cause import failures.
+- Liquid template and policy expressions with XML special characters, such as "<" or ">", no longer result in runtime failures.
+
+
+### Self-hosted developer portal releases
+
+- [2.27.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.27.0)
+
+### Self-hosted gateway container image releases
+
+- No new releases
+
+### Self-hosted gateway Helm chart releases
+
+- No new releases
+
 ## Release - API Management service: March 2024
 
 ###  ‼️ Breaking changes ‼️
