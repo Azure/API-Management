@@ -1,5 +1,38 @@
 # Azure API Management service changelog
 
+## Release - API Management service: June, 2024
+
+###  ‼️ Breaking changes ‼️
+
+- URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters.
+
+### New features, improvements, and changes
+
+- HTTP/2 connections are now drained and gracefully terminated before node restarts
+- We added support for decryption keys to the [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
+- [`azure-openai-semantic-cache-lookup`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-lookup-policy) and [`azure-openai-semantic-cache-store`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-store-policy) policies now work in both V2 and Classic tiers.
+- We've imprioved promt token estimation accuracy for GPT-4 models in the [`azure-openai-token-limit `](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) policy
+
+### Fixes
+
+- We fixed an issue which caused GraphQL resolver runtime errors when primitive type fileds had null value
+- We fixed a bug and stopped the fields of type array-of-objects from causing GraphQL resolver runtime errors
+- Load balancer feature ...
+- Expressions are now work as expected for in the `<audience/>` elements in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
+- We fixed a bug that caused XML entities to be erroneously unescaped in the policy documents
+
+### Self-hosted developer portal releases
+
+- No new releases
+
+### Self-hosted gateway container image releases
+
+- [2.26.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.6.0)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.10.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.10.0)
+
 ## Release - API Management service: May, 2024
 
 ### New features, improvements, and changes
