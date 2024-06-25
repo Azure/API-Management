@@ -2,14 +2,10 @@
 
 ## Release - API Management service: June, 2024
 
-###  ‼️ Breaking changes ‼️
-
-- URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters.
-
 ### New features, improvements, and changes
 
 - HTTP/2 connections are now drained and gracefully terminated before node restarts
-- We added support for decryption keys to the [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
+- We added support for decryption keys to the [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy
 - [`azure-openai-semantic-cache-lookup`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-lookup-policy) and [`azure-openai-semantic-cache-store`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-store-policy) policies now work in both V2 and Classic tiers.
 - We've imprioved promt token estimation accuracy for GPT-4 models in the [`azure-openai-token-limit `](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) policy
 
@@ -19,7 +15,8 @@
 - We fixed a bug and stopped the fields of type array-of-objects from causing GraphQL resolver runtime errors
 - Load balancer feature ...
 - Expressions are now work as expected for in the `<audience/>` elements in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
-- We fixed a bug that caused XML entities to be erroneously unescaped in the policy documents
+- We fixed a bug causing XML elements within Liquid templates in policy documents to be needlessly decoded
+- URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters
 
 ### Self-hosted developer portal releases
 
