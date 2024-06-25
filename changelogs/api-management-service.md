@@ -13,7 +13,6 @@
 
 - We fixed an issue which caused GraphQL resolver runtime errors when primitive type fileds had null value
 - We fixed a bug and stopped the fields of type array-of-objects from causing GraphQL resolver runtime errors
-- Load balancer feature ...
 - Expressions are now work as expected for in the `<audience/>` elements in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
 - We fixed a bug causing XML elements within Liquid templates in policy documents to be needlessly decoded
 - URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters
@@ -29,6 +28,7 @@
 ### Self-hosted gateway Helm chart releases
 
 - [1.10.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.10.0)
+
 
 ## Release - API Management service: May, 2024
 
