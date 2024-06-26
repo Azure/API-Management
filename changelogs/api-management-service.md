@@ -19,7 +19,7 @@
 
 ### Self-hosted developer portal releases
 
-- No new releases
+- [2.28.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.28.0)
 
 ### Self-hosted gateway container image releases
 
@@ -28,7 +28,6 @@
 ### Self-hosted gateway Helm chart releases
 
 - [1.10.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.10.0)
-
 
 ## Release - API Management service: May, 2024
 
