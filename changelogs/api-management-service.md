@@ -1,5 +1,37 @@
 # Azure API Management service changelog
 
+## Release - API Management service: June, 2024
+
+### New features, improvements, and changes
+
+- HTTP/2 connections are now drained and gracefully terminated before node restarts
+- We added support for decryption keys to the [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy
+- [`azure-openai-semantic-cache-lookup`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-lookup-policy) and [`azure-openai-semantic-cache-store`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-store-policy) policies now work in both V2 and Classic tiers.
+- We've improved prompt token estimation accuracy for GPT-4 models in the [`azure-openai-token-limit `](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) policy
+- We've made [request tracing](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector) more secure and it's now available in both Classic and V2 tiers
+- Now customers can use Azure portal to [migrate](https://learn.microsoft.com/azure/api-management/migrate-stv1-to-stv2-vnet?#trigger-migration-of-a-network-injected-api-management-instance) their stv1 service instances to stv2
+
+### Fixes
+
+- We fixed an issue which caused GraphQL resolver runtime errors when primitive type fileds had null value
+- We fixed a bug and stopped the fields of type array-of-objects from causing GraphQL resolver runtime errors
+- Expressions now work as expected for in the `<audience/>` elements in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
+- We fixed a bug causing XML elements within Liquid templates in policy documents to be needlessly decoded
+- URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters
+- We fixed an issue preventing [backend load balancing feature](https://learn.microsoft.com/azure/api-management/backends?tabs=bicep#load-balanced-pool) from working properly with [`retry`](https://learn.microsoft.com/azure/api-management/retry-policy) policy
+
+### Self-hosted developer portal releases
+
+- [2.28.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.28.0)
+
+### Self-hosted gateway container image releases
+
+- [2.26.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.6.0)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.10.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.10.0)
+
 ## Release - API Management service: May, 2024
 
 ### New features, improvements, and changes
