@@ -16,6 +16,7 @@
 - Expressions now work as expected for in the `<audience/>` elements in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy) policy
 - We fixed a bug causing XML elements within Liquid templates in policy documents to be needlessly decoded
 - URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters
+- We fixed an issue preventing [backend load balancing feature](https://learn.microsoft.com/azure/api-management/backends?tabs=bicep#load-balanced-pool) from working properly with [`retry`](https://learn.microsoft.com/azure/api-management/retry-policy) policy
 
 ### Self-hosted developer portal releases
 
