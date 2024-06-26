@@ -7,7 +7,7 @@
 - HTTP/2 connections are now drained and gracefully terminated before node restarts
 - We added support for decryption keys to the [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy
 - [`azure-openai-semantic-cache-lookup`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-lookup-policy) and [`azure-openai-semantic-cache-store`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-store-policy) policies now work in both V2 and Classic tiers.
-- We've imprioved promt token estimation accuracy for GPT-4 models in the [`azure-openai-token-limit `](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) policy
+- We've improved prompt token estimation accuracy for GPT-4 models in the [`azure-openai-token-limit `](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) policy
 
 ### Fixes
 
