@@ -8,6 +8,8 @@
 - We added support for decryption keys to the [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy
 - [`azure-openai-semantic-cache-lookup`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-lookup-policy) and [`azure-openai-semantic-cache-store`](https://learn.microsoft.com/azure/api-management/azure-openai-semantic-cache-store-policy) policies now work in both V2 and Classic tiers.
 - We've improved prompt token estimation accuracy for GPT-4 models in the [`azure-openai-token-limit `](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) policy
+- We've made [request tracing](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector) more secure and it's now available in both Classic and V2 tiers
+- Now customers can use Azure portal to [migrate](https://learn.microsoft.com/azure/api-management/migrate-stv1-to-stv2-vnet?#trigger-migration-of-a-network-injected-api-management-instance) their stv1 service instances to stv2
 
 ### Fixes
 
