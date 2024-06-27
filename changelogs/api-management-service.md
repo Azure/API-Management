@@ -26,7 +26,7 @@
 
 ### Self-hosted gateway container image releases
 
-- [2.26.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.6.0)
+- [2.6.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.6.0)
 
 ### Self-hosted gateway Helm chart releases
 
