@@ -56,7 +56,7 @@
 
 ### Self-hosted developer portal releases
 
-- [2.28.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.28.0)
+- [2.29.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.29.0)
 
 ### Self-hosted gateway container image releases
 
