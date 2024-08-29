@@ -5,8 +5,9 @@
 ### Announcements
 
 - Workspaces are now generally available. [Learn how to empower API teams and federate the management of APIs with workspaces](https://aka.ms/apim/workspaces/ga-announcement).
-- [GenAI gateway capabilities are now expanded to support a wider range of large language models through Azure AI Model Inference API.](https://aka.ms/apim/genai/llm-policies)
-- [WordPress plugin to build customized developer portals is now in preview.](https://aka.ms/apim-wordpressblog)
+- [GenAI gateway capabilities are now expanded to support a wider range of large language models through Azure AI Model Inference API](https://aka.ms/apim/genai/llm-policies).
+- [WordPress plugin to build customized developer portals is now in preview](https://aka.ms/apim-wordpressblog).
+- You can watch [the recording of our July live stream on YouTube](https://aka.ms/apim/standups/2024-07). We'll be hosting another live stream in September—stay tuned to [our blog](https://aka.ms/apim/blogs) for the upcoming announcement.
 
 ### Changes
 
