@@ -12,6 +12,7 @@
 ### Changes
 
 * If an API does not require subscription authentication, any API request that includes a subscription key will now be treated the same as a request without a subscription key. Previously, if a request included a subscription key associated with a different API or product, API Management would return a `401 Unauthorized` response. This change improves the security of your APIs by preventing the accidental exposure of subscription keys linked to other products.
+* As part of the general availability of workspaces, we are discontinuing support for preview workspaces in API Management. You can learn more about these changes [in the last section of the workspaces general availability announcement](https://aka.ms/apim/workspaces/ga-announcement) and [in this documentation article](https://aka.ms/apimdocs/workspaces/changes-ga).
 
 ### New features
 
