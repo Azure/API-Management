@@ -10,12 +10,12 @@
 
 ### Changes
 
-* If an API does not require subscription authentication, any API request that includes a subscription key will now be treated the same as a request without a subscription key. Previously, if a request included a subscription key associated with a different API or product, API Management would return a 401 Unauthorized response. This change improves the security of your APIs by preventing the accidental exposure of subscription keys linked to other products.
+* If an API does not require subscription authentication, any API request that includes a subscription key will now be treated the same as a request without a subscription key. Previously, if a request included a subscription key associated with a different API or product, API Management would return a `401 Unauthorized` response. This change improves the security of your APIs by preventing the accidental exposure of subscription keys linked to other products.
 
 ### New features
 
 * We added support for serializing a single child XML element into a JSON array using [the `XML-to-JSON` policy](https://learn.microsoft.com/azure/api-management/xml-to-json-policy).
-* We added support for case-insensitive property names comparison in [the `validate-content` policy](https://learn.microsoft.com/azure/api-management/validate-content-policy).
+* We added support for case-insensitive property names comparison with the optional `case-insensitive-property-names` attribute in [the `validate-content` policy](https://learn.microsoft.com/azure/api-management/validate-content-policy). The default value is `false`.
 * We added support for the `2024-02-01` and `2024-06-01` [Azure OpenAI API versions]( https://learn.microsoft.com/azure/ai-services/openai/reference#data-plane-inference) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [azure-openai-emit-token-metric](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
 * We added support for integer and integer arrays as output of [Azure OpenAI embeddings calls](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-06-01/inference.yaml) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [`azure-openai-emit-token-metric`](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
 * We added support for managed identity authentication for newly created backends.
