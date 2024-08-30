@@ -19,7 +19,7 @@
 
 * We added support for serializing a single child XML element into a JSON array using [the `XML-to-JSON` policy](https://learn.microsoft.com/azure/api-management/xml-to-json-policy).
 * We added support for case-insensitive property names comparison with the optional `case-insensitive-property-names` attribute in [the `validate-content` policy](https://learn.microsoft.com/azure/api-management/validate-content-policy). The default value is `false`.
-* We added support for the `2024-02-01` and `2024-06-01` [Azure OpenAI API versions]( https://learn.microsoft.com/azure/ai-services/openai/reference#data-plane-inference) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [azure-openai-emit-token-metric](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
+* We added support for the `2024-02-01` and `2024-06-01` [Azure OpenAI API versions]( https://learn.microsoft.com/azure/ai-services/openai/reference#data-plane-inference) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [`azure-openai-emit-token-metric`](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
 * We added support for integer and integer arrays as output of [Azure OpenAI embeddings calls](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-06-01/inference.yaml) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [`azure-openai-emit-token-metric`](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
 * We added support for managed identity authentication for newly created backends.
 * We added support for ES256 token signing algorithm in [the `validate-jwt` policy](https://learn.microsoft.com/azure/api-management/validate-jwt-policy).
@@ -34,10 +34,20 @@
 * We optimized the performance of deleting users. Previously, the operation could time out if there were thousands or more users in the API Management service.
 * We fixed a bug that caused an incorrect date-time format to be returned when testing GraphQL resolvers.
 * We removed internal runtime exception details from GraphQL resolver error messages.
+* The developer portal `delegationUrl` setting now defaults to `null`. Previously, it defaulted to an empty string, causing payload validation errors on `PUT` calls to the management API.
 
 ### Self-hosted developer portal releases
 
 - [2.29.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.29.0)
+
+### Self-hosted gateway container image releases
+
+- [2.7.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.7.1)
+- [2.7.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.7.0)
+
+### Self-hosted gateway Helm chart releases
+
+- [1.11.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.11.0)
 
 ## Release - API Management service: June, 2024
 
