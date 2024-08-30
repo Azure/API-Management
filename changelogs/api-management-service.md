@@ -22,15 +22,15 @@
 * We added support for the `2024-02-01` and `2024-06-01` [Azure OpenAI API versions]( https://learn.microsoft.com/azure/ai-services/openai/reference#data-plane-inference) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [`azure-openai-emit-token-metric`](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
 * We added support for integer and integer arrays as output of [Azure OpenAI embeddings calls](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/cognitiveservices/data-plane/AzureOpenAI/inference/stable/2024-06-01/inference.yaml) in the [`azure-openai-token-limit`](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [`azure-openai-emit-token-metric`](https://learn.microsoft.com/azure/api-management/azure-openai-emit-token-metric-policy) policies.
 * We added support for managed identity authentication for newly created backends.
-* We added support for ES256 token signing algorithm in [the `validate-jwt` policy](https://learn.microsoft.com/azure/api-management/validate-jwt-policy).
+* We added support for the ES256 token signing algorithm in [the `validate-jwt` policy](https://learn.microsoft.com/azure/api-management/validate-jwt-policy).
 
 ### Fixes and improvements
 
 * We fixed an issue with [the `retry` policy](https://learn.microsoft.com/azure/api-management/retry-policy) not working correctly with [load balancer backends](https://learn.microsoft.com/azure/api-management/backends?tabs=bicep#load-balanced-pool).
 * We fixed a bug with [the backend reconnect action](https://learn.microsoft.com/rest/api/apimanagement/backend/reconnect?view=rest-apimanagement-2022-08-01&tabs=HTTP) not working properly.
-* We fixed a bug with decrypted token not being returned in a context variable in the [`validate-azure-ad-token` policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy).
+* We fixed a bug with the decrypted token not being included in a context variable when using the [`validate-azure-ad-token` policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy).
 * We made the `certificate-id` attribute of the `decryption-keys` element in [the `validate-azure-ad-token` policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) optional.
-* We fixed a bug that caused Key Vault certificate refresh failures if a certificate was referenced within a policy fragment.
+* We fixed a bug that caused refresh failures for certificates in a key vault referenced within a policy fragment.
 * We optimized the performance of deleting users. Previously, the operation could time out if there were thousands or more users in the API Management service.
 * We fixed a bug that caused an incorrect date-time format to be returned when testing GraphQL resolvers.
 * We removed internal runtime exception details from GraphQL resolver error messages.
