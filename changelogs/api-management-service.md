@@ -6,8 +6,8 @@
 
 - Workspaces are now generally available. [Learn how to empower API teams and federate the management of APIs with workspaces](https://aka.ms/apim/workspaces/ga-announcement).
 - [GenAI gateway capabilities are now expanded to support a wider range of large language models through Azure AI Model Inference API](https://aka.ms/apim/genai/llm-policies).
+- [Developer portal audit logging is now generally available](http://aka.ms/AzureAPIMDeveloperPortalLogs).
 - [WordPress plugin to build customized developer portals is now in preview](https://aka.ms/apim-wordpressblog).
-- [Audit logging of developer portal usage is now generally available](http://aka.ms/AzureAPIMDeveloperPortalLogs).
 - You can watch [the recording of our July live stream on YouTube](https://aka.ms/apim/standups/2024-07). We'll be hosting another live stream in September—stay tuned to [our blog](https://aka.ms/apim/blogs) for the upcoming announcement.
 
 ### Changes
@@ -35,6 +35,10 @@
 * We fixed a bug that caused an incorrect date-time format to be returned when testing GraphQL resolvers.
 * We removed internal runtime exception details from GraphQL resolver error messages.
 
+### Self-hosted developer portal releases
+
+- [2.29.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.29.0)
+
 ## Release - API Management service: June, 2024
 
 ### New features, improvements, and changes
@@ -54,10 +58,6 @@
 - We fixed a bug causing XML elements within Liquid templates in policy documents to be needlessly decoded
 - URL properties in the [Backend](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update) entity no longer accept URLs containing query parameters. We've made the change to fix a bug. Please use [`set-query-parameter`](https://learn.microsoft.com/azure/api-management/set-query-parameter-policy) policy and [`backend.credentials.query`](https://learn.microsoft.com/rest/api/apimanagement/backend/create-or-update#backendcredentialscontract) to set query parameters
 - We fixed an issue preventing [backend load balancing feature](https://learn.microsoft.com/azure/api-management/backends?tabs=bicep#load-balanced-pool) from working properly with [`retry`](https://learn.microsoft.com/azure/api-management/retry-policy) policy
-
-### Self-hosted developer portal releases
-
-- [2.29.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.29.0)
 
 ### Self-hosted gateway container image releases
 
