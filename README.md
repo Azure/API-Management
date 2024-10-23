@@ -10,17 +10,15 @@ This repository is used for publishing [Azure API Management release notes](http
 
 Explore other resources about Azure API Management:
 
+- [Blog posts](https://aka.ms/apim/blogs)
 - [Product overview](https://aka.ms/apimrocks)
 - [Pricing](https://aka.ms/apimpricing)
 - [Documentation](https://aka.ms/apimdocs)
-- [Whitepapers, blogs, videos, samples, and other resources](https://aka.ms/apimlove)
 
 ## Related repositories
 
 Explore other Azure API Management repositories:
 
 - [Developer portal](https://aka.ms/apimdevportal)
-- [DevOps Resource Kit](https://aka.ms/apimdevops)
 - [Self-hosted API gateway resources](https://aka.ms/apim/shgw/repo)
 - [Policy snippets and examples](https://aka.ms/apimpolicyexamples)
-- [Visual Studio Code extension](https://github.com/microsoft/vscode-apimanagement)
