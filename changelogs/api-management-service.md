@@ -4,7 +4,7 @@
 
 ### New features and improvements
 
-- [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports promts that include image.
+- [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports prompts that include image.
 - [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [LLM token limit](https://learn.microsoft.com/azure/api-management/llm-token-limit-policy) policies can now also enforce overall token quota.
 - [Backend identifier](https://learn.microsoft.com/azure/api-management/backends) can now be used as a dimension in any of the emit metric policies.
 - [Workspaces](https://learn.microsoft.com/azure/api-management/workspaces-overview) are now available in the Germany West Central region.
