@@ -13,8 +13,8 @@
 ### Bug fixes
 
 - Requests to an API in an [open product](https://learn.microsoft.com/azure/api-management/api-management-howto-add-products?tabs=azure-portal&pivots=interactive#access-to-product-apis) and containing a subscription key for a different product are not being rejected anymore.
-- [Validate content policy](https://learn.microsoft.com/azure/api-management/validate-content-policy) now works correctly with nullable properties in JSON payloads, including those defined by the `onOf`, `anyOf`, and `allOf` schema constructs.
-- [Redirect content URLs policy](https://learn.microsoft.com/azure/api-management/redirect-content-urls-policy) doesn't add redundant slashes to the output URLs unlike it used to in some cases.
+- [Validate content policy](https://learn.microsoft.com/azure/api-management/validate-content-policy) now works correctly with nullable properties in JSON payloads, including those defined by the `oneOf`, `anyOf`, and `allOf` schema constructs.
+- [Redirect content URLs policy](https://learn.microsoft.com/azure/api-management/redirect-content-urls-policy) doesn't add redundant slashes to the output URLs like it used to in some cases.
 - [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now correctly puts decrypted token into the context variable specified in the `output-token-variable-name` attribute.
 - [Rate limit by key policy](https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy) now returns correct value in the `Retry-After` header in all cases.
 - Array fields are now returned when included in Synthetic GraphQL subscriptions.
