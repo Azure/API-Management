@@ -8,7 +8,7 @@
 - [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [LLM token limit](https://learn.microsoft.com/azure/api-management/llm-token-limit-policy) policies can now also enforce overall token quota.
 - [Backend identifier](https://learn.microsoft.com/azure/api-management/backends) can now be used as a dimension in any of the emit metric policies.
 - [Workspaces](https://learn.microsoft.com/azure/api-management/workspaces-overview) are now available in the Germany West Central region.
-- [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now works with protected forwarde tokens (PFT) tokens.
+- [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now works with protected forwarded tokens.
 - You can now successfully add a workspace to a service configured with a custom host name.
 - Synthetic GraphQL requests, especially those with large schemas or multiple complex resolvers, perform much faster now.
 
