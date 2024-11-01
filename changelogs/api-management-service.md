@@ -4,12 +4,10 @@
 
 ### New features and improvements
 
-- [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports prompts that include image.
+- [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports prompts that include images.
 - [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [LLM token limit](https://learn.microsoft.com/azure/api-management/llm-token-limit-policy) policies can now also enforce overall token quota.
 - [Backend identifier](https://learn.microsoft.com/azure/api-management/backends) can now be used as a dimension in any of the emit metric policies.
 - [Workspaces](https://learn.microsoft.com/azure/api-management/workspaces-overview) are now available in the Germany West Central region.
-- [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now works with protected forwarded tokens.
-- You can now successfully add a workspace to a service configured with a custom host name.
 - Synthetic GraphQL requests, especially those with large schemas or multiple complex resolvers, perform much faster now.
 
 ### Bug fixes
@@ -17,10 +15,10 @@
 - Requests to an API in an [open product](https://learn.microsoft.com/azure/api-management/api-management-howto-add-products?tabs=azure-portal&pivots=interactive#access-to-product-apis) and containing a subscription key for a different product are not being rejected anymore.
 - [Validate content policy](https://learn.microsoft.com/azure/api-management/validate-content-policy) now works correctly with nullable properties in JSON payloads, including those defined by the `onOf`, `anyOf`, and `allOf` schema constructs.
 - [Redirect content URLs policy](https://learn.microsoft.com/azure/api-management/redirect-content-urls-policy) doesn't add redundant slashes to the output URLs unlike it used to in some cases.
-- [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now correctly puts unencrypted token into the context variable specified in the `output-token-variable-name` attribute.
+- [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now correctly puts decrypted token into the context variable specified in the `output-token-variable-name` attribute.
 - [Rate limit by key policy](https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy) now returns correct value in the `Retry-After` header in all cases.
 - Array fields are now returned when included in Synthetic GraphQL subscriptions.
-
+- You can now successfully add a workspace to a service configured with a custom hostname.
 
 ### Self-hosted developer portal releases
 
