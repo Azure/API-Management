@@ -2,6 +2,8 @@
 
 ## Release - API Management service: November, 2024
 
+This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
+
 ### New features and improvements
 
 - [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports prompts that include images.
