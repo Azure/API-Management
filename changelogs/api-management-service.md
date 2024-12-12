@@ -4,6 +4,11 @@
 
 This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
 
+### Featured content
+
+- Discover the latest announcements and demos in [our Microsoft Ignite session "Effective API governance in the era of AI with Azure API Management"](https://aka.ms/apim/ignite/2024).
+- Watch the recording of [our YouTube live stream in December](https://aka.ms/apim/live/2024-12), featuring deep-dives into recent features and industry developments.
+
 ### New features and improvements
 
 - [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports prompts that include images.
