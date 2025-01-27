@@ -1,5 +1,44 @@
 # Azure API Management service changelog
 
+## Release - API Management service: November, 2024
+
+This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
+
+### Featured content
+
+- Discover the latest announcements and demos in [our Microsoft Ignite session "Effective API governance in the era of AI with Azure API Management"](https://aka.ms/apim/ignite/2024).
+- Watch the recording of [our YouTube live stream in December](https://aka.ms/apim/live/2024-12), featuring deep-dives into recent features and industry developments.
+
+### New features and improvements
+
+- [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) now fully supports prompts that include images.
+- [Azure OpenAI token limit policy](https://learn.microsoft.com/azure/api-management/azure-openai-token-limit-policy) and [LLM token limit](https://learn.microsoft.com/azure/api-management/llm-token-limit-policy) policies can now also enforce overall token quota.
+- [Backend identifier](https://learn.microsoft.com/azure/api-management/backends) can now be used as a dimension in any of the emit metric policies.
+- [Workspaces](https://learn.microsoft.com/azure/api-management/workspaces-overview) are now available in the Germany West Central region.
+- Synthetic GraphQL requests, especially those with large schemas or multiple complex resolvers, perform much faster now.
+
+### Bug fixes
+
+- Requests to an API in an [open product](https://learn.microsoft.com/azure/api-management/api-management-howto-add-products?tabs=azure-portal&pivots=interactive#access-to-product-apis) and containing a subscription key for a different product are not being rejected anymore.
+- [Validate content policy](https://learn.microsoft.com/azure/api-management/validate-content-policy) now works correctly with nullable properties in JSON payloads, including those defined by the `oneOf`, `anyOf`, and `allOf` schema constructs.
+- [Redirect content URLs policy](https://learn.microsoft.com/azure/api-management/redirect-content-urls-policy) doesn't add redundant slashes to the output URLs like it used to in some cases.
+- [Validate Entra ID token policy](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) now correctly puts decrypted token into the context variable specified in the `output-token-variable-name` attribute.
+- [Rate limit by key policy](https://learn.microsoft.com/en-us/azure/api-management/rate-limit-by-key-policy) now returns correct value in the `Retry-After` header in all cases.
+- Array fields are now returned when included in Synthetic GraphQL subscriptions.
+- You can now successfully add a workspace to a service configured with a custom hostname.
+
+### Self-hosted developer portal releases
+
+- [2.30.0](https://github.com/Azure/api-management-developer-portal/releases/tag/2.30.0)
+
+### Self-hosted gateway container image releases
+
+- None
+
+### Self-hosted gateway Helm chart releases
+
+- None
+
 ## Release - API Management service: August, 2024
 
 ### Announcements
