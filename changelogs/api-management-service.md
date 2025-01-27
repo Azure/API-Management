@@ -1,6 +1,6 @@
 # Azure API Management service changelog
 
-## Release - API Management service: November, 2024
+## Release - API Management service: January, 2025
 
 This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
 
