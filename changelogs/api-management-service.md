@@ -1,5 +1,75 @@
 # Azure API Management service changelog
 
+## Release - API Management service: May, 2025
+
+### New Features and Improvements
+
+#### Workspaces
+- Workspaces are now supported in **Norway East** and **West Europe**. See the [documentation](https://learn.microsoft.com/en-us/azure/api-management/api-management-region-availability#supported-regions-for-v2-tiers-and-workspace-gateways) for details and instructions for accessing workspaces in West Europe.
+- You can now [associate multiple workspaces](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-general-availability-of-shared-workspace-gateways-in-azure-api-manage/4292221) with a single workspace gateway.
+
+#### Gateway & Traffic Management
+- **Quota-by-key policy** is now available in v2 service tiers, enabling more flexible and fine-grained rate limiting. [More info](https://learn.microsoft.com/en-us/azure/api-management/quota-by-key-policy).
+- **Circuit breaker configuration** in backends now supports an optional `failureResponse` property, allowing you to define fallback HTTP status codes (100–599). [More info](https://learn.microsoft.com/en-us/azure/api-management/backends).
+- **Data-plane events** in Azure Event Grid (Public Preview) are now enabled by default in the gateway, allowing for richer event notifications and diagnostics.
+- You can now **configure the same URL suffix** for both HTTP REST and WebSocket APIs, simplifying endpoint design.
+
+#### Platform & Portal Enhancements
+- **Authoring API Management policies with Microsoft Copilot** in Azure is now **Generally Available**.
+- The **Network Status** page in the Azure Portal now displays new monitoring endpoints for **national cloud regions**, improving visibility into service health and diagnostics. [More info](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/metrics-store-custom-rest-api).
+
+#### LLM & Semantic Caching
+- **Launched enhanced logging** for large language model (LLM) scenarios, including new fields — `resourceId`, `workspaceId`, and `region` — for improved traceability. Log timestamps are now emitted in **date-time format** instead of long integers, aligning with standard observability practices.
+- **Semantic caching** has been updated to support **GPT-4o** prompts that include multiple content types and now correctly identifies `max-message-count` of the most recent messages.
+
+#### Observability Enhancements
+- The [emit-metric](https://learn.microsoft.com/en-us/azure/api-management/emit-metric-policy), [azure-openai-emit-token-metric](https://learn.microsoft.com/en-us/azure/api-management/azure-openai-emit-token-metric-policy)  , and [llm-emit-token-metric](https://learn.microsoft.com/en-us/azure/api-management/llm-emit-token-metric-policy) policies now treat **dimension keys as case-insensitive**, ensuring consistent metric grouping and reducing casing-related issues.  
+- **Backend pool failures** now include a `Retry-After` header to support client-side resiliency strategies.
+- **Self-hosted gateway** now emits additional debug logs, including snapshot decompression, manglers, and listeners to assist with diagnostics. [More info](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-log-event-hubs).
+
+---
+
+### ⚠️ Change
+- You may need to **associate a workspace with a workspace gateway** before managing resources in that workspace. [More info](https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/workspaces-breaking-changes-march-2025)
+
+---
+
+### Bug Fixes
+
+#### Gateway & Traffic Management
+- Fixed a bug where **VNet-integrated Standard v2 services** required blob storage access to be unblocked via NSG for management operations.
+- Fixed delivery issues in **log-to-eventhub policy** in Basic v2 and Standard v2 SKUs.
+- Fixed inaccurate detection and counting of **backend connectivity errors** in the Circuit Breaker policy.
+- Fixed **bandwidth calculation** in quota-by-key policy on self-hosted gateway to include transferred bytes.
+
+#### Telemetry and Monitoring
+- Fixed a bug where `backendTime` reported in **Azure Monitor and Application Insights** was higher than expected.
+- Resolved startup and connection failures in **self-hosted gateway** when telemetry or feature-flagged endpoints were not fully rolled out.
+- Fixed **missing WebSocket Azure Monitor logs** due to lowercase resource IDs.
+
+#### OpenAPI Specification Handling
+- Resolved an issue where OpenAPI definition did not include a **response description**. If omitted, it is now auto-filled as an empty string.
+- OpenAPI **'format' properties** are now preserved correctly during import (previously could appear in the description).
+- **Required formData fields** are now properly enforced.
+
+#### Workspace & Product Configuration
+- Fixed an issue preventing **workspace deletion** after failed gateway activation.
+- **Deleting an API Management service** now requires removal of all associated workspace gateways.
+- When a product is configured to limit subscriptions, the **limit must now be greater than zero**.
+
+#### Other Reliability Improvements
+- Improved reliability of the **llm-content-safety policy** and added support for multiple blocklists and categories.
+- Import of API specifications from a **localhost address** is no longer supported.
+- Improved formatting of **error responses** for management API requests that fail due to **minimum API version enforcement**.
+
+### Developer Portal
+- [2.33.0](https://github.com/Azure/api-management-developer-portal/releases)
+
+### Self-hosted Gateway
+- **Container Image**: [2.8.1](https://github.com/Azure/api-management-self-hosted-gateway/releases)
+- **Helm Chart**: [1.12.1](https://github.com/Azure/api-management-self-hosted-gateway/releases)
+
+
 ## Release - API Management service: January, 2025
 
 This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
