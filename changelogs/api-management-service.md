@@ -32,6 +32,7 @@
 ### ⚠️ Changes
 - You may need to **associate a workspace with a workspace gateway** before managing resources in that workspace. [More info](https://learn.microsoft.com/en-us/azure/api-management/breaking-changes/workspaces-breaking-changes-march-2025)
 - We've updated how the state of asynchronous operations is tracked in the Microsoft.ApiManagement resource provider in all API version. Going forward, responses will include an `Azure-AsyncOperation` header, in addition to the Location header. This header contains a URL following the format below, which can be used to monitor the operation status: `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.ApiManagement/service/{service-name}/tenant/operationResults/{operation-id}`. To check the status of an operation, customers using [built-in roles](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#integration) don't need to take any action. However, **custom reader roles must be updated** to allow the `Microsoft.ApiManagement/service/tenant/*/read` action. [Learn more.](https://learn.microsoft.com/azure/azure-resource-manager/management/async-operations)
+- We’ve improved how capacity usage is calculated for API Management services. As a result, you may notice that reported usage appears higher than before. This change reflects a more accurate calculation method that better represents the actual utilization of your service. It does should have no impact on the performance or throughput of your service.
 
 ---
 
