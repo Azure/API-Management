@@ -15,9 +15,17 @@ Since the last update, we’ve added:
 ### New features and improvements
 
 * [Model logging](https://learn.microsoft.com/azure/api-management/api-management-howto-llm-logs) now supports the Azure OpenAI Realtime API.
-* `validate-azure-ad-token` policy now returns more detailed error messages for validation failures.
 * Product resource names can now include dots (`.`).
 * [Synthetic GraphQL subscriptions](https://learn.microsoft.com/azure/api-management/publish-event-policy) and [email notifications](https://learn.microsoft.com/azure/api-management/api-management-howto-configure-notifications) are now supported in v2 tiers.
+* OpenAPI imports are now safer, result in cleaner API definitions, and fail with clearer error messages.
+    * Imports are blocked if a path placeholder (e.g., `/orders/{id}`) has no matching parameter, with a clear validation error shown.
+    * Imports from `localhost` URLs are now blocked. You can use file upload or an accessible non-localhost URL instead.
+    * If a response object doesn't include a description, API Management now defaults it to an empty string.
+* The policy engine now blocks embedding scripts using the `XsltSettings.EnableScript` setting.
+* Policy parsing is now consistent across locales, ensuring numbers are interpreted reliably regardless of browser language or region (comma vs. dot), preventing save errors.
+* The `validate-azure-ad-token` policy now returns more detailed error messages when token validation fails.
+* API inspector now provides better visibility into authentication, showing when OAuth or OIDC settings were last refreshed, whether refresh succeeded, and any error details.
+* The self-hosted gateway now produces cleaner JSON logs, applies configuration updates more reliably, and starts successfully even if the OpenTelemetry monitoring isn't configured.
 
 ### Bug fixes
 
