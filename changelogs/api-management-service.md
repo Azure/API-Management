@@ -1,5 +1,38 @@
 # Azure API Management service changelog
 
+Releases are deployed gradually in phases and batches, [following the safe deployment practices framework and release channels](https://learn.microsoft.com/azure/api-management/validate-service-updates). Rollout may take several weeks across Azure regions, so new features and fixes may not be immediately available in your service.
+
+## Release - API Management service: September, 2025
+
+### Highlights
+
+Since the last update, we’ve added:
+
+* [**MCP support** (public preview)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%9A%80-new-in-azure-api-management-mcp-in-v2-skus--external-mcp-compliant-server-sup/4440294), enabling you to [expose APIs in API Management](https://learn.microsoft.com/azure/api-management/export-rest-mcp-server) or [external MCP servers](https://learn.microsoft.com/en-us/azure/api-management/expose-existing-mcp-server) as AI agent tools with stronger [authentication](https://learn.microsoft.com/azure/api-management/secure-mcp-servers), governance, and observability.
+* Workspace support for [**federated logging**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-federated-logging-in-azure-api-management/4413838), [**metrics and autoscale**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/introducing-workspace-gateway-metrics-and-autoscale-in-azure-api-management/4413900), and the [**Premium v2 tier**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/workspaces-are-now-generally-available-in-azure-api-management-premium-v2/4435589).
+* [**Applications** (public preview)](https://aka.ms/apim-applications-preview), offering built-in OAuth 2.0–based access to products.
+
+### New features and improvements
+
+* [Model logging](https://learn.microsoft.com/azure/api-management/api-management-howto-llm-logs) now supports the Azure OpenAI Realtime API.
+* `validate-azure-ad-token` policy now returns more detailed error messages for validation failures.
+* Product resource names can now include dots (`.`).
+* [Synthetic GraphQL subscriptions](https://learn.microsoft.com/azure/api-management/publish-event-policy) and [email notifications](https://learn.microsoft.com/azure/api-management/api-management-howto-configure-notifications) are now supported in v2 tiers.
+
+### Bug fixes
+
+* Resolved issue where prolonged cache outages could cause gateway data plane downtime.
+
+### ⚠️ Changes
+
+* [We are working on reintroducing support for workspaces on the gateway built into Azure API Management service](https://aka.ms/apim/workspaces/built-in-gateway-changes), effectively rescinding parts of the previously announced breaking changes. For now, newly created workspaces are not accessible via the built-in gateway, as announced in the [March 2025 breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-march-2025).
+* API versions prior to `2019-12-01` no longer return secrets via GET operations. The Azure Policy definition enforcing a minimum API version has been deprecated. Newer API versions remain unchanged, returning secrets only through POST operations. [Learn more about API version retirement](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-march-2025).
+
+### Self-hosted gateway
+
+* Container image: [2.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.9.0)
+* Helm Chart: [1.13.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.13.0)
+
 ## Release - API Management service: May, 2025
 
 ### New Features and Improvements
@@ -73,8 +106,6 @@
 
 
 ## Release - API Management service: January, 2025
-
-This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
 
 ### Featured content
 
