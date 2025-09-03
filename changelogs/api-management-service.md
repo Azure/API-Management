@@ -6,7 +6,7 @@ Releases are deployed gradually in phases and batches, [following the safe deplo
 
 ### Highlights
 
-Since the last update, we’ve added:
+Since the last update, we've added:
 
 * [**MCP support** (public preview)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%9A%80-new-in-azure-api-management-mcp-in-v2-skus--external-mcp-compliant-server-sup/4440294), enabling you to [expose APIs in API Management](https://learn.microsoft.com/azure/api-management/export-rest-mcp-server) or [external MCP servers](https://learn.microsoft.com/en-us/azure/api-management/expose-existing-mcp-server) as AI agent tools with stronger [authentication](https://learn.microsoft.com/azure/api-management/secure-mcp-servers), governance, and observability.
 * Workspace support for [**federated logging**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-federated-logging-in-azure-api-management/4413838), [**metrics and autoscale**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/introducing-workspace-gateway-metrics-and-autoscale-in-azure-api-management/4413900), and the [**Premium v2 tier**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/workspaces-are-now-generally-available-in-azure-api-management-premium-v2/4435589).
@@ -26,7 +26,7 @@ Since the last update, we’ve added:
 * Policy parsing is now consistent across locales, ensuring numbers are interpreted reliably regardless of browser language or region (comma vs. dot), preventing save errors.
 * The `validate-azure-ad-token` policy now returns more detailed error messages when token validation fails.
 * API inspector now provides better visibility into authentication, showing when OAuth or OIDC settings were last refreshed, whether refresh succeeded, and any error details.
-* The self-hosted gateway now produces cleaner JSON logs, applies configuration updates more reliably, and starts successfully even if the OpenTelemetry monitoring isn't configured.
+* The self-hosted gateway now produces cleaner JSON logs, applies configuration updates more reliably, and starts successfully even when the OpenTelemetry monitoring isn't configured.
 
 ### Bug fixes
 
@@ -260,17 +260,17 @@ Since the last update, we’ve added:
 
 ###  ‼️ Breaking changes ‼️
 
-- On June 14, 2024, we’re introducing [breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-june-2024) to the Workspaces feature. You may have to take action to continue using workspaces beyond June 14, 2024.
+- On June 14, 2024, we're introducing [breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-june-2024) to the Workspaces feature. You may have to take action to continue using workspaces beyond June 14, 2024.
 
 ### New features, improvements, and changes
 
-- We’ve introduced several new features and improvements to workspaces:
+- We've introduced several new features and improvements to workspaces:
     - You can now create and manage certificates, backends, diagnostics, and loggers inside a workspace with the `2023-09-01-preview` management API version.Azure portal interface will be released soon.
     - You can now use `context.Workspace` in policy expressions.
     - "default-workspace" is now a reserved workspace resource name.
 - We now preserve the `format` and `schema` properties of the form-data parameters when importing OpenAPI APIs.
 - HTTP version information will now be included in the [request trace](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector).
-- We’ve added support for HS512 and RS512 algorithms in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy#usage-notes) policy.
+- We've added support for HS512 and RS512 algorithms in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy#usage-notes) policy.
 - `client-application-ids` element is now optional in [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy.
 - We've made a couple improvements to the GraphQL support:
     - We've added support for [Union Type](https://spec.graphql.org/October2021/#sec-Unions) in GraphQL [resolvers](https://learn.microsoft.com/azure/api-management/http-data-source-policy#resolver-for-a-graqhql-query-that-returns-a-list-using-a-liquid-template)
@@ -283,13 +283,13 @@ Since the last update, we’ve added:
 
 ### Fixes
 
-- We’ve resolved the issue where Azure API Management would incorrectly log requests that were rejected due to public network access is disabled. This fix ensures that logs and metrics in Azure Monitor now exclude these rejected requests when API Management is [set up with a private endpoint](https://learn.microsoft.com/azure/api-management/private-endpoint).
+- We've resolved the issue where Azure API Management would incorrectly log requests that were rejected due to public network access is disabled. This fix ensures that logs and metrics in Azure Monitor now exclude these rejected requests when API Management is [set up with a private endpoint](https://learn.microsoft.com/azure/api-management/private-endpoint).
 - An attempt to create diagnostics in a workspace that doesn't exist will now return a `404 Not Found` error. Previously, API Management returned a `500 Internal Server Error` response.
 - Workspace users can no longer override diagnostics settings defined for all APIs on the service level.
 - Exporting APIs with empty or whitespace-only examples no longer produces an error.
 - Optional string query parameters are no longer added to the API operation's URL template.
 -`$DevPortalUrl` variable in the developer welcome email template now returns a new developer portal URL. Previously, it returned a legacy developer portal URL.
-- The [`authenticate-certificate`](https://learn.microsoft.com/azure/api-management/authentication-certificate-policy) policy now performs a case-insensitive certificate ID validation. Previously, request processing would fail when the casing between the certificate ID in the policy and in the request didn’t match.
+- The [`authenticate-certificate`](https://learn.microsoft.com/azure/api-management/authentication-certificate-policy) policy now performs a case-insensitive certificate ID validation. Previously, request processing would fail when the casing between the certificate ID in the policy and in the request didn't match.
 - We've fixed an issue preventing recovery of the [soft-deleted](https://learn.microsoft.com/azure/api-management/soft-delete#recover-a-soft-deleted-instance) Basic v2 and Standard v2 service instances.
 
 ### Self-hosted developer portal releases
