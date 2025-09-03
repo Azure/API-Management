@@ -38,6 +38,8 @@ Since the last update, we’ve added:
 
 ### Self-hosted gateway
 
+* Container image: [2.9.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.9.1)
+* Helm Chart: [1.13.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.13.1)
 * Container image: [2.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.9.0)
 * Helm Chart: [1.13.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.13.0)
 
