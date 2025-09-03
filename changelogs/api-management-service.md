@@ -1,5 +1,49 @@
 # Azure API Management service changelog
 
+Releases are deployed gradually in phases and batches, [following the safe deployment practices framework and release channels](https://learn.microsoft.com/azure/api-management/validate-service-updates). Rollout may take several weeks across Azure regions, so new features and fixes may not be immediately available in your service.
+
+## Release - API Management service: September, 2025
+
+### Highlights
+
+Since the last update, we've added:
+
+* [**MCP support** (public preview)](https://techcommunity.microsoft.com/blog/integrationsonazureblog/%F0%9F%9A%80-new-in-azure-api-management-mcp-in-v2-skus--external-mcp-compliant-server-sup/4440294), enabling you to [expose APIs in API Management](https://learn.microsoft.com/azure/api-management/export-rest-mcp-server) or [external MCP servers](https://learn.microsoft.com/en-us/azure/api-management/expose-existing-mcp-server) as AI agent tools with stronger [authentication](https://learn.microsoft.com/azure/api-management/secure-mcp-servers), governance, and observability.
+* Workspace support for [**federated logging**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-federated-logging-in-azure-api-management/4413838), [**metrics and autoscale**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/introducing-workspace-gateway-metrics-and-autoscale-in-azure-api-management/4413900), and the [**Premium v2 tier**](https://techcommunity.microsoft.com/blog/integrationsonazureblog/workspaces-are-now-generally-available-in-azure-api-management-premium-v2/4435589).
+* [**Applications** (public preview)](https://aka.ms/apim-applications-preview), offering built-in OAuth 2.0–based access to products.
+
+### New features and improvements
+
+* You can now enable content-safety checks on chat completions for final redaction, logging, and response validation using the `enforce-on-completions` attribute of the `llm-content-safety` policy. This setting is off by default.
+* [Model logging](https://learn.microsoft.com/azure/api-management/api-management-howto-llm-logs) now supports the Azure OpenAI Realtime API.
+* Product resource names can now include dots (`.`).
+* [Synthetic GraphQL subscriptions](https://learn.microsoft.com/azure/api-management/publish-event-policy) and [email notifications](https://learn.microsoft.com/azure/api-management/api-management-howto-configure-notifications) are now supported in v2 tiers.
+* OpenAPI imports are now safer, result in cleaner API definitions, and fail with clearer error messages.
+    * Imports are blocked if a path placeholder (e.g., `/orders/{id}`) has no matching parameter, with a clear validation error shown.
+    * Imports from `localhost` URLs are now blocked. You can use file upload or an accessible non-localhost URL instead.
+    * If a response object doesn't include a description, API Management now defaults it to an empty string.
+* The policy engine now blocks embedding scripts using the `XsltSettings.EnableScript` setting.
+* Policy parsing is now consistent across locales, ensuring numbers are interpreted reliably regardless of browser language or region (comma vs. dot), preventing save errors.
+* The `validate-azure-ad-token` policy now returns more detailed error messages when token validation fails.
+* API inspector now provides better visibility into authentication, showing when OAuth or OIDC settings were last refreshed, whether refresh succeeded, and any error details.
+* The self-hosted gateway now produces cleaner JSON logs, applies configuration updates more reliably, and starts successfully even when the OpenTelemetry monitoring isn't configured.
+
+### Bug fixes
+
+* Resolved issue where prolonged cache outages could cause gateway data plane downtime.
+
+### ⚠️ Changes
+
+* [We are working on reintroducing support for workspaces on the gateway built into Azure API Management service](https://aka.ms/apim/workspaces/built-in-gateway-changes), effectively rescinding parts of the previously announced breaking changes. For now, newly created workspaces are not accessible via the built-in gateway, as announced in the [March 2025 breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-march-2025).
+* API versions prior to `2019-12-01` no longer return secrets via GET operations. The Azure Policy definition enforcing a minimum API version has been deprecated. Newer API versions remain unchanged, returning secrets only through POST operations. [Learn more about API version retirement](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-march-2025).
+
+### Self-hosted gateway
+
+* Container image: [2.9.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.9.1)
+* Helm Chart: [1.13.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.13.1)
+* Container image: [2.9.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.9.0)
+* Helm Chart: [1.13.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.13.0)
+
 ## Release - API Management service: May, 2025
 
 ### New Features and Improvements
@@ -73,8 +117,6 @@
 
 
 ## Release - API Management service: January, 2025
-
-This release will be deployed gradually in phases and batches, [following the safe deployment practices framework](https://learn.microsoft.com/en-us/azure/api-management/validate-service-updates). The rollout will span several weeks across all Azure regions, so your services may not have the new features and fixes until the deployment is complete.
 
 ### Featured content
 
@@ -218,17 +260,17 @@ This release will be deployed gradually in phases and batches, [following the sa
 
 ###  ‼️ Breaking changes ‼️
 
-- On June 14, 2024, we’re introducing [breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-june-2024) to the Workspaces feature. You may have to take action to continue using workspaces beyond June 14, 2024.
+- On June 14, 2024, we're introducing [breaking changes](https://learn.microsoft.com/azure/api-management/breaking-changes/workspaces-breaking-changes-june-2024) to the Workspaces feature. You may have to take action to continue using workspaces beyond June 14, 2024.
 
 ### New features, improvements, and changes
 
-- We’ve introduced several new features and improvements to workspaces:
+- We've introduced several new features and improvements to workspaces:
     - You can now create and manage certificates, backends, diagnostics, and loggers inside a workspace with the `2023-09-01-preview` management API version.Azure portal interface will be released soon.
     - You can now use `context.Workspace` in policy expressions.
     - "default-workspace" is now a reserved workspace resource name.
 - We now preserve the `format` and `schema` properties of the form-data parameters when importing OpenAPI APIs.
 - HTTP version information will now be included in the [request trace](https://learn.microsoft.com/azure/api-management/api-management-howto-api-inspector).
-- We’ve added support for HS512 and RS512 algorithms in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy#usage-notes) policy.
+- We've added support for HS512 and RS512 algorithms in the [`validate-jwt`](https://learn.microsoft.com/azure/api-management/validate-jwt-policy#usage-notes) policy.
 - `client-application-ids` element is now optional in [`validate-azure-ad-token`](https://learn.microsoft.com/azure/api-management/validate-azure-ad-token-policy) policy.
 - We've made a couple improvements to the GraphQL support:
     - We've added support for [Union Type](https://spec.graphql.org/October2021/#sec-Unions) in GraphQL [resolvers](https://learn.microsoft.com/azure/api-management/http-data-source-policy#resolver-for-a-graqhql-query-that-returns-a-list-using-a-liquid-template)
@@ -241,13 +283,13 @@ This release will be deployed gradually in phases and batches, [following the sa
 
 ### Fixes
 
-- We’ve resolved the issue where Azure API Management would incorrectly log requests that were rejected due to public network access is disabled. This fix ensures that logs and metrics in Azure Monitor now exclude these rejected requests when API Management is [set up with a private endpoint](https://learn.microsoft.com/azure/api-management/private-endpoint).
+- We've resolved the issue where Azure API Management would incorrectly log requests that were rejected due to public network access is disabled. This fix ensures that logs and metrics in Azure Monitor now exclude these rejected requests when API Management is [set up with a private endpoint](https://learn.microsoft.com/azure/api-management/private-endpoint).
 - An attempt to create diagnostics in a workspace that doesn't exist will now return a `404 Not Found` error. Previously, API Management returned a `500 Internal Server Error` response.
 - Workspace users can no longer override diagnostics settings defined for all APIs on the service level.
 - Exporting APIs with empty or whitespace-only examples no longer produces an error.
 - Optional string query parameters are no longer added to the API operation's URL template.
 -`$DevPortalUrl` variable in the developer welcome email template now returns a new developer portal URL. Previously, it returned a legacy developer portal URL.
-- The [`authenticate-certificate`](https://learn.microsoft.com/azure/api-management/authentication-certificate-policy) policy now performs a case-insensitive certificate ID validation. Previously, request processing would fail when the casing between the certificate ID in the policy and in the request didn’t match.
+- The [`authenticate-certificate`](https://learn.microsoft.com/azure/api-management/authentication-certificate-policy) policy now performs a case-insensitive certificate ID validation. Previously, request processing would fail when the casing between the certificate ID in the policy and in the request didn't match.
 - We've fixed an issue preventing recovery of the [soft-deleted](https://learn.microsoft.com/azure/api-management/soft-delete#recover-a-soft-deleted-instance) Basic v2 and Standard v2 service instances.
 
 ### Self-hosted developer portal releases
