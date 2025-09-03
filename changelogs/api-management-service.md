@@ -14,6 +14,7 @@ Since the last update, we’ve added:
 
 ### New features and improvements
 
+* You can now enable content-safety checks on chat completions for final redaction, logging, and response validation using the `enforce-on-completions` attribute of the `llm-content-safety` policy. This setting is off by default.
 * [Model logging](https://learn.microsoft.com/azure/api-management/api-management-howto-llm-logs) now supports the Azure OpenAI Realtime API.
 * Product resource names can now include dots (`.`).
 * [Synthetic GraphQL subscriptions](https://learn.microsoft.com/azure/api-management/publish-event-policy) and [email notifications](https://learn.microsoft.com/azure/api-management/api-management-howto-configure-notifications) are now supported in v2 tiers.
