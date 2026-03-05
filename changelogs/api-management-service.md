@@ -2,6 +2,93 @@
 
 Releases are deployed gradually in phases and batches, [following the safe deployment practices framework and release channels](https://learn.microsoft.com/azure/api-management/validate-service-updates). Rollout may take several weeks across Azure regions, so new features and fixes may not be immediately available in your service.
 
+## Release - API Management service: March, 2026
+
+### Highlights
+
+This release includes significant improvements across multiple areas:
+
+* **AI Gateway enhancements** - Added support for v1 OpenAI API, [A2A (Agent2Agent) communication](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/preview-govern-secure-and-observe-a2a-apis-with-azure-api-management/4469800), deployment-level token limits, and improved logging with agent provider tracking. Enhanced content safety and token management capabilities. Improved MCP server integration with increased tools limit, bug fixes for POST body delivery and SSE event handling, enhanced telemetry, and CORS support for MCP Inspector
+* **Security updates** - Addressed critical vulnerabilities in self-hosted gateway including CVE-2025-55248 and CVE-2025-55315
+* **Platform improvements** - Key Vault References support in Credential Manager, Premium v2 SKU general availability, and distributed request tracing
+* **Gateway enhancements** - Self-hosted gateway v2.11.0 release, improved SSE streaming, backend context properties, and enhanced logging capabilities
+
+### Breaking Changes
+
+Trusted service connectivity in API Management gateway will be retired on March 15, 2026. To avoid service interruptions, [review the guidance to determine whether your API Management service is affected and take steps ensure a smooth transition](https://learn.microsoft.com/azure/api-management/breaking-changes/trusted-service-connectivity-retirement-march-2026).
+
+### New Features and improvements
+
+#### AI Gateway
+
+* AI Gateway now supports OpenAI v1 API.
+* [Added A2A (Agent2Agent) communication support, enabling multi-agent workflows](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/preview-govern-secure-and-observe-a2a-apis-with-azure-api-management/4469800).
+* Deployment-level token limits can now be configured for better cost control.
+* Token quota period in llm-token-limit policy can now be specified using policy expressions.
+* Now sending User-Agent header when retrieving OIDC configuration in the JWT validation policy for better observability.
+* Agent APIs support OpenTelemetry logging with GenAI semantic convention attributes (agent name, agent ID, and provider name) into Application Insights. [Learn more](https://learn.microsoft.com/azure/api-management/agent-to-agent-api#key-capabilities).
+* Expanded configurable MCP tool limits, enabling larger and more complex agent workflows at scale.
+* Increased MCP tool limit to align with API operation limits per APIM SKU. Previously, MCP servers were limited to 20 tools per server (hardcoded). This limit has been removed and now matches the API operation limits defined by the selected Azure API Management SKU, enabling larger and more complex agent toolsets.
+* Added native OAuth 2.1 authorization support for MCP servers created and managed in Azure API Management, aligned with the MCP (2025-06-18) specification
+* Enabled policy-driven execution timeouts for MCP servers created from APIs, removing fixed runtime constraints, and supporting long-running agent workflows.
+* Added notifications/tools/list_changed event support, allowing MCP clients to automatically refresh tool catalogs without reconnecting.
+* Introduced MCP runtime telemetry signals for tool invocation, including request outcomes, execution latency, and error details, improving monitoring and diagnostics for MCP server operations.
+
+#### Gateway & Backend
+* Enabled use of the rewrite-uri policy when forwarding requests to backend services, allowing more flexible request transformation and routing scenarios.
+* Added option to expedite stream processing by flushing every chunk of payload for improved real-time performance for model APIs.
+* Request and response logging now includes content type and length across all SKU.
+* Now when you configure a backend entity in API Management, you can access backend properties in policies by using the context.Backend.
+
+#### Platform & Security
+* Credential Manager now supports Key Vault References, improving security posture and simplifying credential lifecycle management.
+* Premium v2 SKU is now generally available with enhanced capabilities i.e improved VNET injection, inbound private link, CA certificates and zone redundancy support. Details can be found in docs [here](https://aka.ms/apimdocs/skuv2/overview).
+* Added support for the send-service-bus-message policy in the Azure API Management Policy Toolkit, enabling APIs to publish messages directly to Azure Service Bus queues or topics using policy configuration — simplifying event-driven and asynchronous messaging scenarios without custom adapters.
+* New entity limits are now announced and implemented for Developer, Basic and Consumption tier SKUv1 services, details [here](https://techcommunity.microsoft.com/blog/integrationsonazureblog/new-azure-api-management-service-limits/4497574).
+* [Enabled sustainability capabilities that allow API traffic to be dynamically optimized based on regional carbon intensity](https://techcommunity.microsoft.com/blog/integrationsonazureblog/building-environmental-aware-api-platforms-with-azure-api-management/4458308). Customers can shift or shape API traffic using backend load balancing and policy signals, enabling greener routing decisions and runtime behavior adjustments that help reduce the carbon footprint of API workloads while maintaining service reliability.
+
+#### Developer Portal
+* Added Proof-of-Work (PoW) captcha support for enhanced security.
+
+### Bug Fixes
+#### AI Gateway
+
+* Fixed stack overflow exception when LLM logging serialized Bedrock messages with tool calls.
+* Fixed LLM deserialization failures when payload contains null "content" property.
+* Resolved issue where invoke-request policy did not transfer LifeTimeScope.TraceUploader in Azure OpenAI scenarios.
+* Fixed invoke-request policy not transferring Private Link information.
+* Corrected token calculation issues in OpenAI Token Limit policy.
+* Fixed LLM content safety validation policy window being fixed at 200 characters.
+* Resolved content safety policy incorrectly terminating streams and dropping [DONE] events.
+* Resolved issue where MCP POST request bodies were not forwarded to backend APIs, ensuring correct payload delivery during tool execution.
+* Fixed data corruption issue affecting certain MCP GET operations, improving response reliability and consistency.
+* Resolved CORS configuration issues impacting MCP Inspector in direct mode, enabling smoother local testing and debugging workflows. 
+* Improved MCP execution stability for loopback and long-running operations, addressing scenarios that caused ClientConnectionFailure or premature timeout behavior.
+* Corrected SSE streaming behavior for MCP endpoints, preventing early connection termination during delayed backend processing.
+* Corrected MCP tool schema generation to properly mark optional query parameters and headers as optional, improving client usability and reducing invocation errors.
+* Fixed McpServerSentEventsResponseStreamWrapper.ReadAsync truncating SSE events.
+
+#### Gateway
+
+* Resolved issue where GetAuthorizationContextPolicy did not check token expiry when retrieved from cache.
+* Fixed outbound HEAD request timeout issue, improving backend connectivity reliability.
+* Fixed issue where SSE logging caused gateway to buffer up to 8 events before sending them to client.
+
+#### General
+
+* Fixed issue where API-scoped, all-APIs, and the built-in all-access subscriptions were inheriting policies from an open product associated with the API being called.
+* Resolved IndexOutOfRange exception in Weighted Distributor.
+* Fixed Endpoint Throttler handling null Context.Request.Uri.
+* Corrected expiration cache not updating with sliding expiration type.
+* Fixed tenant capping being calculated on old SKU instead of new during scale up/down operations.
+* Resolved breaking change for apps feature where SubscriptionKeyNotFound error reason was returned.
+* Fixed "forgot password" feature in Developer Portal not working when required sign-in is enabled.
+
+### Self-hosted Gateway
+- **Container Image**: [2.11.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.11.0)
+- **Helm Chart**: [1.15.0](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.15.0)
+
+
 ## Release - API Management service: September, 2025
 
 ### Highlights
