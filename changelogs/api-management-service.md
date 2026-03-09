@@ -9,6 +9,7 @@ Releases are deployed gradually in phases and batches, [following the safe deplo
 This release includes significant improvements across multiple areas:
 
 * **AI Gateway enhancements** - Added support for v1 OpenAI API, [A2A (Agent2Agent) communication](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/preview-govern-secure-and-observe-a2a-apis-with-azure-api-management/4469800), deployment-level token limits, and improved logging with agent provider tracking. Enhanced content safety and token management capabilities. Improved MCP server integration with increased tools limit, bug fixes for POST body delivery and SSE event handling, enhanced telemetry, and CORS support for MCP Inspector
+* We're bringing our HTTP/2-to-backend & gRPC support from self-hosted gateway to Azure API Management’s managed gateway in newly created SKUv1 instances.
 * **Security updates** - Addressed critical vulnerabilities in self-hosted gateway including CVE-2025-55248 and CVE-2025-55315
 * **Platform improvements** - Key Vault References support in Credential Manager, and Premium v2 SKU general availability.
 * **Gateway enhancements** - Self-hosted gateway v2.11.0 release, improved SSE streaming, backend context properties, and enhanced logging capabilities
@@ -39,6 +40,7 @@ Trusted service connectivity in API Management gateway will be **retired on Marc
 * Request and response logging now includes content type and length across all SKU.
 * Now when you configure a backend entity in API Management, you can access backend properties in policies by using the [context.Backend](https://learn.microsoft.com/azure/api-management/api-management-policy-expressions#ref-context-backend).
 * Now sending User-Agent header when retrieving OIDC configuration in the JWT validation policy for better observability.
+* gRPC is now supported in managed gateway for newly created SKUv1 instances. [Learn more](https://learn.microsoft.com/azure/api-management/grpc-api)
 
 
 #### Platform & Security
