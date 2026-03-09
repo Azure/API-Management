@@ -9,10 +9,12 @@ Releases are deployed gradually in phases and batches, [following the safe deplo
 This release includes significant improvements across multiple areas:
 
 * **AI Gateway enhancements** - Added support for v1 OpenAI API, [A2A (Agent2Agent) communication](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/preview-govern-secure-and-observe-a2a-apis-with-azure-api-management/4469800), deployment-level token limits, and improved logging with agent provider tracking. Enhanced content safety and token management capabilities. Improved MCP server integration with increased tools limit, bug fixes for POST body delivery and SSE event handling, enhanced telemetry, and CORS support for MCP Inspector
-* We're bringing our HTTP/2-to-backend & gRPC support from self-hosted gateway to Azure API Management’s managed gateway in newly created SKUv1 instances.
+* We're bringing our HTTP/2-to-backend & gRPC support from self-hosted gateway to Azure API Management’s managed gateway in public preview (*).
 * **Security updates** - Addressed critical vulnerabilities in self-hosted gateway including CVE-2025-55248 and CVE-2025-55315
 * **Platform improvements** - Key Vault References support in Credential Manager, and Premium v2 SKU general availability.
 * **Gateway enhancements** - Self-hosted gateway v2.11.0 release, improved SSE streaming, backend context properties, and enhanced logging capabilities
+
+(*) Available in newly created SKU v1 instances and DEV SKU services. For others, open support ticket to request access ahead of rollout.
 
 ### Breaking Changes
 
@@ -38,17 +40,18 @@ Trusted service connectivity in API Management gateway will be **retired on Marc
 * Enabled use of the rewrite-uri policy when forwarding requests to backend services, allowing more flexible request transformation and routing scenarios.
 * Added option to expedite stream processing by flushing every chunk of payload for improved real-time performance for model APIs.
 * Request and response logging now includes content type and length across all SKU.
-* Now when you configure a backend entity in API Management, you can access backend properties in policies by using the [context.Backend](https://learn.microsoft.com/azure/api-management/api-management-policy-expressions#ref-context-backend).
+* Now when you configure a backend entity in API Management, you can access backend properties in policies by using the [context.Backend](https://learn.microsoft.com/azure/api-management/api-management-policy-expressions#ref-context-backend). ([Azure Friday demo](https://learn.microsoft.com/en-us/shows/azure-friday/building-environmental-aware-api-platforms-w-api-management))
 * Now sending User-Agent header when retrieving OIDC configuration in the JWT validation policy for better observability.
-* gRPC is now supported in managed gateway for newly created SKUv1 instances. [Learn more](https://learn.microsoft.com/azure/api-management/grpc-api)
+* gRPC is now supported in managed gateway in public preview for newly created SKUv1 instances(*). [Learn more](https://learn.microsoft.com/azure/api-management/grpc-api)
 
+(*) Available in newly created SKU v1 instances and DEV SKU services. For others, open support ticket to request access ahead of rollout.
 
 #### Platform & Security
 * Credential Manager now supports Key Vault References, improving security posture and simplifying credential lifecycle management.
 * Premium v2 SKU is now generally available with enhanced capabilities i.e improved VNET injection, inbound private link, CA certificates and zone redundancy support. Details can be found in docs [here](https://aka.ms/apimdocs/skuv2/overview).
 * Added support for the send-service-bus-message policy in the Azure API Management Policy Toolkit, enabling APIs to publish messages directly to Azure Service Bus queues or topics using policy configuration — simplifying event-driven and asynchronous messaging scenarios without custom adapters.
 * New entity limits are now announced and implemented for Developer, Basic and Consumption tier SKUv1 services, details [here](https://techcommunity.microsoft.com/blog/integrationsonazureblog/new-azure-api-management-service-limits/4497574).
-* [Enabled sustainability capabilities that allow API traffic to be dynamically optimized based on regional carbon intensity](https://techcommunity.microsoft.com/blog/integrationsonazureblog/building-environmental-aware-api-platforms-with-azure-api-management/4458308). Customers can shift or shape API traffic using backend load balancing and policy signals, enabling greener routing decisions and runtime behavior adjustments that help reduce the carbon footprint of API workloads while maintaining service reliability.
+* [Enabled sustainability capabilities that allow API traffic to be dynamically optimized based on regional carbon intensity](https://techcommunity.microsoft.com/blog/integrationsonazureblog/building-environmental-aware-api-platforms-with-azure-api-management/4458308). Customers can shift or shape API traffic using backend load balancing and policy signals, enabling greener routing decisions and runtime behavior adjustments that help reduce the carbon footprint of API workloads while maintaining service reliability. ([Azure Friday demo](https://learn.microsoft.com/en-us/shows/azure-friday/building-environmental-aware-api-platforms-w-api-management))
 
 #### Developer Portal
 * Added Proof-of-Work (PoW) captcha support for enhanced security.
