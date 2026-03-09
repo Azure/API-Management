@@ -10,12 +10,12 @@ This release includes significant improvements across multiple areas:
 
 * **AI Gateway enhancements** - Added support for v1 OpenAI API, [A2A (Agent2Agent) communication](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/preview-govern-secure-and-observe-a2a-apis-with-azure-api-management/4469800), deployment-level token limits, and improved logging with agent provider tracking. Enhanced content safety and token management capabilities. Improved MCP server integration with increased tools limit, bug fixes for POST body delivery and SSE event handling, enhanced telemetry, and CORS support for MCP Inspector
 * **Security updates** - Addressed critical vulnerabilities in self-hosted gateway including CVE-2025-55248 and CVE-2025-55315
-* **Platform improvements** - Key Vault References support in Credential Manager, Premium v2 SKU general availability, and distributed request tracing
+* **Platform improvements** - Key Vault References support in Credential Manager, and Premium v2 SKU general availability.
 * **Gateway enhancements** - Self-hosted gateway v2.11.0 release, improved SSE streaming, backend context properties, and enhanced logging capabilities
 
 ### Breaking Changes
 
-Trusted service connectivity in API Management gateway will be retired on March 15, 2026. To avoid service interruptions, [review the guidance to determine whether your API Management service is affected and take steps ensure a smooth transition](https://learn.microsoft.com/azure/api-management/breaking-changes/trusted-service-connectivity-retirement-march-2026).
+Trusted service connectivity in API Management gateway will be **retired on March 15, 2026**. To avoid service interruptions, [review the guidance to determine whether your API Management service is affected and take steps ensure a smooth transition](https://learn.microsoft.com/azure/api-management/breaking-changes/trusted-service-connectivity-retirement-march-2026).
 
 ### New Features and improvements
 
@@ -25,7 +25,6 @@ Trusted service connectivity in API Management gateway will be retired on March 
 * [Added A2A (Agent2Agent) communication support, enabling multi-agent workflows](https://techcommunity.microsoft.com/blog/IntegrationsonAzureBlog/preview-govern-secure-and-observe-a2a-apis-with-azure-api-management/4469800).
 * Deployment-level token limits can now be configured for better cost control.
 * Token quota period in llm-token-limit policy can now be specified using policy expressions.
-* Now sending User-Agent header when retrieving OIDC configuration in the JWT validation policy for better observability.
 * Agent APIs support OpenTelemetry logging with GenAI semantic convention attributes (agent name, agent ID, and provider name) into Application Insights. [Learn more](https://learn.microsoft.com/azure/api-management/agent-to-agent-api#key-capabilities).
 * Expanded configurable MCP tool limits, enabling larger and more complex agent workflows at scale.
 * Increased MCP tool limit to align with API operation limits per APIM SKU. Previously, MCP servers were limited to 20 tools per server (hardcoded). This limit has been removed and now matches the API operation limits defined by the selected Azure API Management SKU, enabling larger and more complex agent toolsets.
@@ -38,7 +37,9 @@ Trusted service connectivity in API Management gateway will be retired on March 
 * Enabled use of the rewrite-uri policy when forwarding requests to backend services, allowing more flexible request transformation and routing scenarios.
 * Added option to expedite stream processing by flushing every chunk of payload for improved real-time performance for model APIs.
 * Request and response logging now includes content type and length across all SKU.
-* Now when you configure a backend entity in API Management, you can access backend properties in policies by using the context.Backend.
+* Now when you configure a backend entity in API Management, you can access backend properties in policies by using the [context.Backend](https://learn.microsoft.com/azure/api-management/api-management-policy-expressions#ref-context-backend).
+* Now sending User-Agent header when retrieving OIDC configuration in the JWT validation policy for better observability.
+
 
 #### Platform & Security
 * Credential Manager now supports Key Vault References, improving security posture and simplifying credential lifecycle management.
@@ -56,7 +57,6 @@ Trusted service connectivity in API Management gateway will be retired on March 
 * Fixed stack overflow exception when LLM logging serialized Bedrock messages with tool calls.
 * Fixed LLM deserialization failures when payload contains null "content" property.
 * Resolved issue where invoke-request policy did not transfer LifeTimeScope.TraceUploader in Azure OpenAI scenarios.
-* Fixed invoke-request policy not transferring Private Link information.
 * Corrected token calculation issues in OpenAI Token Limit policy.
 * Fixed LLM content safety validation policy window being fixed at 200 characters.
 * Resolved content safety policy incorrectly terminating streams and dropping [DONE] events.
@@ -73,6 +73,7 @@ Trusted service connectivity in API Management gateway will be retired on March 
 * Resolved issue where GetAuthorizationContextPolicy did not check token expiry when retrieved from cache.
 * Fixed outbound HEAD request timeout issue, improving backend connectivity reliability.
 * Fixed issue where SSE logging caused gateway to buffer up to 8 events before sending them to client.
+* Fixed invoke-request policy not transferring Private Link information.
 
 #### General
 
