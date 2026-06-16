@@ -42,7 +42,7 @@ This release includes new AI Gateway, gateway runtime, and management plane impr
 
 ### Breaking Change
 
-**Streaming protocol behavior:** Azure API Management now emits the synthetic [DONE] stream-end marker only for OpenAI-compatible streams. For non-OpenAI streams, including Anthropic, Bedrock, MCP, and A2A, stream completion is now signaled according to the provider protocol, typically through connection close. Customers using non-OpenAI clients that previously waited for [DONE] should update their stream handling accordingly.
+**Streaming protocol behavior:** Azure API Management now emits the synthetic `[DONE]` stream-end marker only for OpenAI-compatible streams. For non-OpenAI streams, including Anthropic, Bedrock, MCP, and A2A, stream completion is now signaled according to the provider protocol, typically through connection close. Customers using non-OpenAI clients that previously waited for `[DONE]` should update their stream handling accordingly.
 
 ### New Features and Improvements
 
@@ -70,7 +70,7 @@ This release includes new AI Gateway, gateway runtime, and management plane impr
 
 - **Enhanced Service Bus policy support:** The [send-service-bus-message](https://learn.microsoft.com/en-us/azure/api-management/send-service-bus-message-policy) policy now supports additional Service Bus capabilities, including message-id, session-id, time-to-live, sent-message output variables, and optional continuation on failure with ignore-error.
 
-- **Improved policy validation and cache behavior:** [llm-token-limit](https://learn.microsoft.com/en-us/azure/api-management/llm-token-limit-policy) policy validation now supports global and product scopes with clearer errors. [llm-semantic-cache-store](https://learn.microsoft.com/en-us/azure/api-management/llm-semantic-cache-store-policy) now caches only 200 responses by default, matching cache-store behavior, and cache-remove-value no longer fails if value removal fails unless configured to do so.
+- **Improved policy validation and cache behavior:** [llm-token-limit](https://learn.microsoft.com/en-us/azure/api-management/llm-token-limit-policy) policy validation now supports global and product scopes with clearer errors. [llm-semantic-cache-store](https://learn.microsoft.com/en-us/azure/api-management/llm-semantic-cache-store-policy) now caches only 200 responses by default, matching cache-store behavior, and cache-remove-value no longer surfaces an error when the value cannot be removed, unless it is explicitly configured to do so.
 
 #### Management API and Control Plane
 
@@ -90,7 +90,7 @@ This release includes new AI Gateway, gateway runtime, and management plane impr
 
 - **Bedrock streaming latency improved:** Bedrock streaming responses are now forwarded as soon as the first event is available instead of buffering multiple events first, improving time to first token.
 
-- **Multi-line SSE data serialized per specification:** Multi-line SSE payloads are now emitted with each line as its own data: field, improving compatibility with SSE clients and fixing MCP timeouts on responses that contain newlines.
+- **Multi-line SSE data serialized per specification:** Multi-line SSE payloads are now emitted with each line as its own `data:` field, improving compatibility with SSE clients and fixing MCP timeouts on responses that contain newlines.
 
 - **Semantic caching handles special characters in vary-by values:** Semantic cache key generation now safely handles vary-by field values with hyphens and other special characters, improving cache-hit reliability.
 
