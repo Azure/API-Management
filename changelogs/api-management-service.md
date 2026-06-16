@@ -2,6 +2,127 @@
 
 Releases are deployed gradually in phases and batches, [following the safe deployment practices framework and release channels](https://learn.microsoft.com/azure/api-management/validate-service-updates). Rollout may take several weeks across Azure regions, so new features and fixes may not be immediately available in your service.
 
+## Release - API Management service: June, 2026
+
+This release includes new AI Gateway, gateway runtime, and management plane improvements across Azure API Management.
+
+### Announcements
+
+- [Learn about the new AI Gateway capabilities in API Management](https://aka.ms/apim/aigateway/build2026)
+  - Unified model API (preview)
+  - Anthropic and Google Vertex AI model support (GA)
+  - Token metrics for additional token types (preview)
+  - Content safety for MCP and A2A (GA)
+  - A2A support (GA)
+  - Related: Bring Your Own Model in Foundry Agent Service (GA)
+
+- [Learn about new updates to MCP capabilities in API Management](https://techcommunity.microsoft.com/blog/integrationsonazureblog/productize-observe-version-and-automate-mcp-servers-in-azure-api-management/4526931)
+  - Add MCP servers to products to package and govern MCP capabilities for specific consumers
+  - MCP tool observability to trace tool usage, logs, errors, and payload context
+  - MCP server versioning to run multiple versions side by side and manage change safely
+  - Management API and Bicep support to automate MCP server configuration as part of CI/CD workflows
+
+- [Built-in gateway support for workspaces](https://techcommunity.microsoft.com/blog/integrationsonazureblog/built-in-gateway-support-for-workspaces-in-azure-api-management/4524622)
+
+### Highlights
+
+- **Content safety for MCP and A2A traffic:** The [llm-content-safety](https://learn.microsoft.com/en-us/azure/api-management/llm-content-safety-policy) policy now supports MCP and A2A request, response, and streaming flows, extending consistent content safety controls across LLM, MCP, and agent-to-agent scenarios.
+
+- **Client-visible MCP and A2A telemetry:** MCP and A2A telemetry now captures what clients send and receive after policy transformations, with opt-in payload logging for MCP tool-call arguments, MCP results, and A2A request and response messages in Application Insights.
+
+- **More detailed LLM and policy diagnostics:** [llm-emit-token-metric](https://learn.microsoft.com/en-us/azure/api-management/llm-emit-token-metric-policy) now emits more granular OpenAI token dimensions, and outbound policy calls are now logged as Application Insights dependency telemetry.
+
+- **Improved gateway resilience and backend connectivity:** Gateway runtime updates include capacity-based throttling for SKU v1, dynamic outbound connection scaling for Gateway v2, and TCP keep-alive for known LLM backends such as Azure OpenAI, Anthropic, Bedrock, and Vertex AI.
+
+- **Service Bus, token-limit, and caching policy updates:** The [send-service-bus-message](https://learn.microsoft.com/en-us/azure/api-management/send-service-bus-message-policy) policy now supports additional Service Bus capabilities, while token-limit validation and semantic caching behavior have been improved.
+
+- **Management plane improvements:** Updates include support for up to three identity providers of the same type, an opt-in effectivePath field, multiple custom hostnames on Premium v2, and new guardrails for large scale-in operations.
+
+- **Bug fixes across AI Gateway, runtime, and management APIs:** Fixes include Bedrock streaming improvements, SSE serialization fixes, semantic cache key handling, token-limit policy fragment support, clearer management API validation responses, SKU v2 token-limit accuracy, and improved missing-endpoint behavior.
+
+### Breaking Change
+
+**Streaming protocol behavior:** Azure API Management now emits the synthetic [DONE] stream-end marker only for OpenAI-compatible streams. For non-OpenAI streams, including Anthropic, Bedrock, MCP, and A2A, stream completion is now signaled according to the provider protocol, typically through connection close. Customers using non-OpenAI clients that previously waited for [DONE] should update their stream handling accordingly.
+
+### New Features and Improvements
+
+#### AI Gateway
+
+- **Expanded content safety coverage for MCP and A2A:** The [llm-content-safety](https://learn.microsoft.com/en-us/azure/api-management/llm-content-safety-policy) policy now supports MCP and A2A traffic in addition to LLM traffic, including MCP tool-call arguments, MCP response text, A2A message text parts, and streaming MCP/A2A SSE responses. Existing LLM behavior is unchanged.
+
+- **More flexible content safety configuration:** The [llm-content-safety](https://learn.microsoft.com/en-us/azure/api-management/llm-content-safety-policy) policy can now be configured directly as an outbound policy, and new window-size and window-overlap-size attributes allow customers to tune chunking behavior for payloads that exceed Azure Content Safety character limits.
+
+- **Improved MCP and A2A telemetry and payload logging:** MCP and A2A telemetry now reflects what clients actually send and receive after policy transformations instead of only raw backend traffic. Customers can opt in to payload logging for MCP tool-call arguments, MCP result content, and A2A request and response messages in Application Insights. Payload logging remains off by default. [Learn more](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-app-insights)
+
+- **More granular LLM token metrics (preview):** [llm-emit-token-metric](https://learn.microsoft.com/en-us/azure/api-management/llm-emit-token-metric-policy) now emits OpenAI prompt and completion sub-counts as separate Application Insights metric dimensions, including audio, cached, reasoning, accepted-prediction, and rejected-prediction tokens.
+
+- **Foundry deployment metadata in policy expressions:** context.Request.Foundry.Deployment is now available to all customers, enabling Foundry-aware routing, logging, and policy logic. [Learn more](https://learn.microsoft.com/en-us/azure/api-management/genai-gateway-capabilities)
+
+#### Gateway Runtime
+
+- **Outbound policy requests logged as Application Insights dependencies:** Outbound HTTP calls made by policies such as send-request, authentication-managed-identity, and validate-jwt key fetches now appear as dependency telemetry in Application Insights, including URL, duration, status code, and operation ID. [Learn more](https://learn.microsoft.com/en-us/azure/api-management/api-management-howto-app-insights)
+
+- **Capacity-based throttling for improved resilience:** Gateway runtime now supports capacity-based throttling to help protect APIs during periods of high CPU or memory usage by temporarily limiting requests with clear 429 and Retry-After responses.
+
+- **Dynamic outbound connection scaling in Gateway v2:** Gateway v2 now increases and dynamically adjusts outbound backend connection limits as gateway capacity changes, reducing connection bottlenecks under high traffic.
+
+- **TCP keep-alive for LLM backends:** TCP keep-alive is now enabled automatically for known LLM backend host or path patterns, including Azure OpenAI, Anthropic, Bedrock, and Vertex AI, helping reduce latency by reusing established backend connections.
+
+- **Enhanced Service Bus policy support:** The [send-service-bus-message](https://learn.microsoft.com/en-us/azure/api-management/send-service-bus-message-policy) policy now supports additional Service Bus capabilities, including message-id, session-id, time-to-live, sent-message output variables, and optional continuation on failure with ignore-error.
+
+- **Improved policy validation and cache behavior:** [llm-token-limit](https://learn.microsoft.com/en-us/azure/api-management/llm-token-limit-policy) policy validation now supports global and product scopes with clearer errors. [llm-semantic-cache-store](https://learn.microsoft.com/en-us/azure/api-management/llm-semantic-cache-store-policy) now caches only 200 responses by default, matching cache-store behavior, and cache-remove-value no longer fails if value removal fails unless configured to do so.
+
+#### Management API and Control Plane
+
+- **Up to three identity providers of the same type:** Customers can now configure up to three identity providers of the same type, making it easier to support multiple Microsoft Entra ID tenants, regional identity endpoints, or phased migrations.
+
+- **Effective runtime path available through API:** A new opt-in effectivePath field returns the fully resolved runtime endpoint path, including version segments, eliminating the need to manually reconstruct runtime paths.
+
+- **Multiple custom hostnames on Premium v2:** Premium v2 now supports multiple custom hostnames during activate, update, and terminate operations, giving customers more flexibility to manage branded domains across environments.
+
+- **Guardrails for large scale-in operations:** Services with more than 15 units can no longer scale in by more than 25% in a single operation, helping prevent abrupt capacity reductions that could affect service stability.
+
+### Bug Fixes
+
+#### AI Gateway
+
+- **Bedrock streamed response logging restored:** Streamed Bedrock responses are now logged with their actual content again, restoring response visibility in Application Insights for Bedrock streaming scenarios.
+
+- **Bedrock streaming latency improved:** Bedrock streaming responses are now forwarded as soon as the first event is available instead of buffering multiple events first, improving time to first token.
+
+- **Multi-line SSE data serialized per specification:** Multi-line SSE payloads are now emitted with each line as its own data: field, improving compatibility with SSE clients and fixing MCP timeouts on responses that contain newlines.
+
+- **Semantic caching handles special characters in vary-by values:** Semantic cache key generation now safely handles vary-by field values with hyphens and other special characters, improving cache-hit reliability.
+
+- **Token-limit policies usable in policy fragments:** [llm-token-limit](https://learn.microsoft.com/en-us/azure/api-management/llm-token-limit-policy) and azure-openai-token-limit attributes are no longer incorrectly rejected when used inside policy fragments or unresolved API scopes.
+
+- **Clear validation error when deleting Operations referenced by MCP Tools:** Deleting an Operation referenced by one or more MCP Tools now returns a clear validation error instead of an opaque server error. [Learn more](https://learn.microsoft.com/en-us/azure/api-management/mcp-server-overview)
+
+- **LLM API version values preserved correctly in Log Analytics:** LLM api-version values are now written in a string-safe format so Azure Monitor does not incorrectly interpret preview API versions as timestamps.
+
+#### Gateway Runtime
+
+- **SKU v2 token-limit accuracy improved:** Token-limit policies now enforce configured limits more accurately in SKU v2 services.
+
+- **Invalid API endpoint requests return 404:** Invalid API endpoint requests now resolve cleanly with a standard 404 response instead of looping.
+
+#### Management API
+
+- **Malformed XML and JSON return HTTP 400 instead of HTTP 500:** Customer-supplied malformed XML or JSON now returns HTTP 400, while internal parsing failures continue to surface as HTTP 500.
+
+- **Authorization server validation improved:** Authorization server updates now validate returnProtectedResourceMetadata correctly even when OAuth settings are omitted, reducing silent misconfigurations.
+
+- **WebSocket API export returns HTTP 400:** Export attempts for unsupported WebSocket APIs now return an HTTP 400 validation error instead of HTTP 500.
+
+- **API contract update validation now runs all checks:** API contract updates now run all validation checks, including A2A-specific rules, so invalid A2A configurations are rejected during management API validation instead of failing later at runtime. [Learn more](https://learn.microsoft.com/en-us/azure/api-management/agent-to-agent-api)
+
+- **SKU v2 tenant updates use the original service name:** Tenant metadata updates now use the service's original name when synchronizing SMAPI tenant information, improving reliability and preserving consistent service identity.
+
+### Self-Hosted Gateway
+
+- **Helm Chart**: [v1.15.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/v1.15.1)
+- **Container Image**: [v2.11.1](https://github.com/Azure/api-management-self-hosted-gateway/releases/tag/Container-v2.11.1)
+
 ## Release - API Management service: March, 2026
 
 ### Highlights
